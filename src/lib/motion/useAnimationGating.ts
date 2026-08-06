@@ -18,10 +18,34 @@ export function useAnimationGating(selectors: readonly string[]) {
   const key = selectors.join(",");
 
   useEffect(() => {
-    if (reduce) return;
-
     const groups = Array.from(document.querySelectorAll(key));
     if (!groups.length) return;
+
+    /** Everything this hook paused must be released, or it stays frozen. */
+    const resumeAll = () => {
+      for (const group of groups) {
+        let animations: Animation[] = [];
+        try {
+          animations = group.getAnimations({ subtree: true });
+        } catch {
+          continue;
+        }
+        for (const animation of animations) {
+          try {
+            animation.play();
+          } catch {
+            /* already finished or cancelled */
+          }
+        }
+      }
+    };
+
+    // `useMotionProfile` starts optimistic, so this effect can have run once
+    // and paused things before learning the user wants reduced motion.
+    if (reduce) {
+      resumeAll();
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -46,6 +70,9 @@ export function useAnimationGating(selectors: readonly string[]) {
     );
     for (const group of groups) observer.observe(group);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      resumeAll();
+    };
   }, [key, reduce]);
 }
