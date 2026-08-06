@@ -1,9 +1,9 @@
 import { Fragment, useRef } from "react";
 
 import { useMotionProfile } from "../../lib/motion/motionProfile";
-import emptyPitchUrl from "../../assets/process/section-4-1.png";
-import ownerUrl from "../../assets/process/section-4-2.png";
-import arrivalUrl from "../../assets/process/section-4-3.png";
+import emptyPitchUrl from "../../assets/process/section-4-1.webp";
+import ownerUrl from "../../assets/process/section-4-2.webp";
+import arrivalUrl from "../../assets/process/section-4-3.webp";
 import { PhotoFrame } from "./PhotoFrame";
 import { ARRIVAL, EMPTY_HOURS, HEADLINE, OWNER } from "./processContent";
 import { useArrivalBeat } from "./useArrivalBeat";

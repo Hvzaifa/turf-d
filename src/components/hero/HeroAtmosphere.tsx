@@ -9,15 +9,16 @@ import type { CSSProperties, ReactNode } from "react";
  * layering on top of it. `grain` is the 256px tile the layer repeats, not the
  * 2048px source.
  */
-import fogBackUrl from "../../assets/hero/fog-back-keyed.png";
-import fogFrontUrl from "../../assets/hero/fog-front-keyed.png";
-import grainUrl from "../../assets/hero/grain.png";
+// One fog sheet serves both layers — they are the same artwork, mirrored and
+// animated differently by the front and back cells.
+import fogUrl from "../../assets/hero/fog-keyed.webp";
+import grainUrl from "../../assets/hero/grain.webp";
 import leavesUrl from "../../assets/hero/leaves-1400.webp";
-import lightRaysUrl from "../../assets/hero/light-rays-keyed.png";
+import lightRaysUrl from "../../assets/hero/light-rays-keyed.webp";
 import pitch1024Url from "../../assets/hero/new-hero-1024.webp";
 import pitch1600Url from "../../assets/hero/new-hero-1600.webp";
 import pitchUrl from "../../assets/hero/new-hero-graded.webp";
-import particlesUrl from "../../assets/hero/particles-keyed.png";
+import particlesUrl from "../../assets/hero/particles-keyed.webp";
 
 /**
  * A dolly cell: an independently transformed camera layer. Each one owns its
@@ -126,7 +127,7 @@ export function FogBackLayer() {
         style={{ left: "-8%", right: "-8%", bottom: "-6%", height: "80%", opacity: 0.5 }}
       >
         <img
-          src={fogBackUrl}
+          src={fogUrl}
           alt=""
           decoding="async"
           style={{
@@ -224,7 +225,7 @@ export function FogFrontLayer() {
         }}
       >
         <img
-          src={fogFrontUrl}
+          src={fogUrl}
           alt=""
           decoding="async"
           style={{

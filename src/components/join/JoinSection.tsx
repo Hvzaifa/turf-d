@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 
-import grainUrl from "../../assets/hero/grain.png";
+import grainUrl from "../../assets/hero/grain.webp";
 import { RevealOnScroll } from "../common/RevealOnScroll";
 
 const EYEBROW = "Early Access";
