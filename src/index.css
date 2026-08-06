@@ -382,6 +382,30 @@ footer {
   }
 }
 
+/* ── Recognition ──────────────────────────────────────────────────────── */
+
+/* The design holds both columns side by side at every width, which squeezes
+   them to ~170px each on a phone. Below 760px the conversation drops beneath
+   the heading and runs full width instead.
+   The scroll scrub is unaffected: it only writes opacity and transform, so the
+   messages still arrive one at a time as you scroll. */
+@media (max-width: 760px) {
+  [data-recog-content] {
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(20px, 5vw, 32px);
+  }
+  /* Both columns carry a flex-basis meant for a row. In a column that basis
+     becomes a height and would pad them out to 300px+ each. */
+  [data-recog-content] > * {
+    flex: 0 0 auto;
+  }
+  [data-recog-convo] {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
 /* ── Live availability ────────────────────────────────────────────────── */
 
 /* Below 760px the pin is dropped altogether: the stage stops being sticky and

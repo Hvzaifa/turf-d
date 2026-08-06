@@ -55,4 +55,15 @@ export const SETTLE_OPACITY = 0.32;
 export const SETTLE_DURATION = 0.6;
 export const UNSETTLE_DURATION = 0.4;
 
+/**
+ * Pin travel, as a fraction of the viewport, below which the stage is treated
+ * as un-pinned.
+ *
+ * The pinned layout gives 3.2 viewports of travel, so it clears this easily.
+ * The mobile layout gives anywhere from a couple of pixels to a fraction of a
+ * screen depending on how the copy wraps — scrubbing the whole story across
+ * that reads as a jump, so it falls back to the pass-through model instead.
+ */
+export const MIN_PIN_RATIO = 0.5;
+
 export const clamp01 = (value: number) => (value < 0 ? 0 : value > 1 ? 1 : value);

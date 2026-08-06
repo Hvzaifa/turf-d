@@ -6,6 +6,7 @@ import { getLenis } from "../../lib/motion/useSmoothScroll";
 import { STATUS_COLOR, type StatusLabel } from "./availabilityContent";
 import {
   LAST_ROW_STATUS_AT,
+  MIN_PIN_RATIO,
   LIVE_INDICATOR_AT,
   LIVE_ROW_SEQUENCE,
   LIVE_ROW_VISIBLE_AT,
@@ -184,8 +185,17 @@ export function useLiveTimelineScrub({ trackRef, stageRef, profile }: Options) {
       let raf = 0;
       const compute = () => {
         const rect = track.getBoundingClientRect();
-        const span = Math.max(1, rect.height - window.innerHeight);
-        applyProgress(clamp01(-rect.top / span));
+        const viewport = window.innerHeight;
+        // Below 760px the design drops the pin: the track collapses to its own
+        // height, leaving no pin budget to scrub against. Fall back to the
+        // section's travel through the viewport so the story still plays out
+        // on scroll instead of arriving all at once.
+        const pinBudget = rect.height - viewport;
+        const progress =
+          pinBudget > viewport * MIN_PIN_RATIO
+            ? -rect.top / pinBudget
+            : (viewport - rect.top) / (viewport + rect.height);
+        applyProgress(clamp01(progress));
       };
       const onScroll = () => {
         if (raf) return;
