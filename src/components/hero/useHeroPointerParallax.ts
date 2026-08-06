@@ -23,7 +23,7 @@ type Options = {
  * It only runs while the hero is the viewport's first screen.
  */
 export function useHeroPointerParallax({ heroRef, profile }: Options) {
-  const { reduce, lite } = profile;
+  const { reduce, liteHero: lite } = profile;
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -104,21 +104,29 @@ export function useHeroPointerParallax({ heroRef, profile }: Options) {
       viewportHeight = window.innerHeight;
       wake();
     };
+    /**
+     * Scrolling can carry the hero in or out of parallax range, but if the
+     * cursor has not moved there is nothing to redraw — waking the ticker
+     * would burn a run of frames writing transforms that never change.
+     */
+    const onScroll = () => {
+      if (!settled) wake();
+    };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("mouseleave", onLeave, { passive: true });
     window.addEventListener("resize", onResize);
     // A scroll can carry the hero in or out of the parallax range.
     const lenis = getLenis();
-    lenis?.on("scroll", wake);
-    if (!lenis) window.addEventListener("scroll", wake, { passive: true });
+    lenis?.on("scroll", onScroll);
+    if (!lenis) window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseleave", onLeave);
       window.removeEventListener("resize", onResize);
-      lenis?.off("scroll", wake);
-      if (!lenis) window.removeEventListener("scroll", wake);
+      lenis?.off("scroll", onScroll);
+      if (!lenis) window.removeEventListener("scroll", onScroll);
       gsap.ticker.remove(frame);
       // Restore each layer's resting transform (some are mirrored).
       for (const { el, base } of layers) el.style.transform = base.trim();

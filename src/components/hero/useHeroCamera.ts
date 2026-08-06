@@ -28,7 +28,7 @@ type Options = {
  * out from under React.
  */
 export function useHeroCamera({ trackRef, heroRef, profile }: Options) {
-  const { reduce, lite } = profile;
+  const { reduce, liteHero: lite } = profile;
 
   useLayoutEffect(() => {
     const track = trackRef.current;

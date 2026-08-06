@@ -19,20 +19,23 @@ type Options = {
  * Both are driven by the `--amb` / `--wc` custom properties the layers read.
  */
 export function useHeroAmbientGating({ heroRef, profile }: Options) {
-  const { reduce, lite } = profile;
+  const { reduce, liteHero: lite } = profile;
 
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
 
-    if (lite && !reduce) {
-      for (const cam of LITE_DISABLED_CAMS) {
-        hero.querySelector<HTMLElement>(`[data-cam="${cam}"]`)?.style.setProperty("display", "none");
-      }
-      hero.querySelector<HTMLElement>('[data-layer="grain"]')?.style.setProperty("display", "none");
-      const leaves = hero.querySelector<HTMLElement>('[data-layer="leaves"] img');
-      if (leaves) leaves.style.animation = "none";
+    // Applied in both directions: the profile can flip as the window is
+    // resized across the lite threshold, and the layers must come back.
+    const drop = lite && !reduce;
+    for (const cam of LITE_DISABLED_CAMS) {
+      const el = hero.querySelector<HTMLElement>(`[data-cam="${cam}"]`);
+      if (el) el.style.display = drop ? "none" : "";
     }
+    const grain = hero.querySelector<HTMLElement>('[data-layer="grain"]');
+    if (grain) grain.style.display = drop ? "none" : "";
+    const leaves = hero.querySelector<HTMLElement>('[data-layer="leaves"] img');
+    if (leaves) leaves.style.animation = drop ? "none" : "";
 
     if (reduce) {
       hero.style.setProperty("--amb", "paused");
