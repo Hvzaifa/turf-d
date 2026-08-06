@@ -1,7 +1,7 @@
-import basketUrl from "../../assets/footer/basket-footer.png";
-import cricketUrl from "../../assets/footer/cricket-ball-footer.png";
-import fifaUrl from "../../assets/footer/fifa-footer.png";
-import tennisUrl from "../../assets/footer/tennisball-footer.png";
+import basketUrl from "../../assets/footer/basketball-footer.webp";
+import cricketUrl from "../../assets/footer/cricket-ball-footer.webp";
+import fifaUrl from "../../assets/footer/fifa-footer.webp";
+import tennisUrl from "../../assets/footer/tennisball-footer.webp";
 
 /**
  * The footer's ball pit — design/project/Turfd Landing.dc.html
