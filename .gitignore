@@ -1,0 +1,34 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+
+# Local tooling — machine-specific permission grants and absolute paths
+.claude
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.local

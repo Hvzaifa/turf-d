@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Turf'd — Book a court in seconds. List one in minutes.</title>
+<meta name="description" content="Turf'd is the on-demand booking platform for futsal, cricket, padel & more. Instant slot-lock for players. Zero double-bookings for court owners. Launching Islamabad Q4 2026." />
+<meta name="theme-color" content="#04301F" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#04301F;--turf:#106043;--mint:#34D498;--deep:#0A3A26;--lmint:#7DEDBF;--chalk:#F5FBF7;--card:#072D1E;--muted:#0A3A26;--mfg:#8FBFA6;--lime:#D3D089;--warm:#EDE9D6;--volt:#FF7A3C;--anton:'Anton',Impact,sans-serif;--inter:'Inter Tight',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#04301F;color:#F5FBF7;font-family:var(--inter);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:#34D498;text-decoration:none;}
+  a:hover{color:#7DEDBF;}
+  button{cursor:pointer;font-family:var(--inter);}
+  input{font-family:var(--inter);}
+  ::selection{background:#34D498;color:#04301F;}
+  [id]{scroll-margin-top:100px;}
+  #why-turf-d,#faq,#join{contain:paint;}
+  footer{content-visibility:auto;contain-intrinsic-size:auto 900px;}
+  [data-eh-frame]{contain:paint;}
+  :focus-visible{outline:2px solid #D3D089;outline-offset:3px;border-radius:4px;}
+  @media (max-height:640px){[data-layer="scroll-cue"]{display:none!important}}
+  #hero input:focus-visible{outline:none;}
+  #hero form:focus-within{border-color:rgba(211,208,137,.5)!important;box-shadow:0 0 0 3px rgba(211,208,137,.1);}
+  @keyframes floaty{0%,100%{transform:translateY(-12px)}50%{transform:translateY(12px)}}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.9)}}
+  @keyframes miniPin{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+  @keyframes radar{0%{transform:scale(.4);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+  @keyframes riseIn{from{transform:translateY(115%)}to{transform:translateY(0)}}
+  @keyframes typedot{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-5px);opacity:1}}
+  @keyframes ballTravel{0%,100%{left:4%}50%{left:calc(96% - 62px)}}
+  @keyframes ballBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+  @keyframes ballSpin{to{transform:rotate(360deg)}}
+  @keyframes orbit{to{transform:rotate(360deg)}}
+  @keyframes orbitRev{to{transform:rotate(-360deg)}}
+  @keyframes hueShift{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+  @keyframes fbAcross{0%{left:-6%}100%{left:104%}}
+  @keyframes grassPop{0%{transform:scaleY(0);opacity:0}55%{transform:scaleY(1.18);opacity:1}100%{transform:scaleY(1);opacity:1}}
+  @keyframes racketSwing{0%{transform:translateX(-30px) rotate(-52deg);opacity:0}25%{opacity:1}55%{transform:translateX(38%) rotate(12deg)}100%{transform:translateX(150%) rotate(26deg);opacity:1}}
+  @keyframes ballFly{0%{left:16%;top:52%;transform:scale(.9)}45%{left:16%;top:52%;transform:scale(.9)}100%{left:112%;top:8%;transform:scale(1.15)}}
+  @keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(198,255,60,.4)}50%{box-shadow:0 0 0 14px rgba(198,255,60,0)}}
+  @keyframes sheen{0%{transform:translateX(-120%)}60%,100%{transform:translateX(220%)}}
+  @keyframes kenburns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.09) translate(-1.5%,-1%)}}
+  @keyframes envDrift{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.03) translate3d(-6px,5px,0)}}
+  @keyframes expo{0%,100%{filter:brightness(1) saturate(1.02)}50%{filter:brightness(1.09) saturate(1.08)}}
+  @keyframes fogDrift{0%{transform:translateX(0)}100%{transform:translateX(-8%)}}
+  @keyframes fogDrift2{0%{transform:translateX(0)}100%{transform:translateX(7%)}}
+  @keyframes floatDust{0%{transform:translate3d(0,0,0);opacity:0}12%{opacity:.85}88%{opacity:.7}100%{transform:translate3d(14px,-120px,0);opacity:0}}
+  @keyframes bloomBreath{0%,100%{opacity:.72}50%{opacity:1}}
+  @keyframes rayDrift{0%,100%{opacity:.28;transform:translateX(-3%) skewX(-8deg)}50%{opacity:.5;transform:translateX(3%) skewX(-8deg)}}
+  @keyframes scrollCue{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(8px);opacity:1}}
+  @keyframes fogBg{0%{transform:translate3d(0,0,0) scale(1.056);animation-timing-function:cubic-bezier(.42,.08,.58,.96)}26%{transform:translate3d(2.1%,-.5%,0) scale(1.068);animation-timing-function:cubic-bezier(.5,.05,.55,.98)}53%{transform:translate3d(.5%,-1.3%,0) scale(1.072);animation-timing-function:cubic-bezier(.45,.02,.5,1)}79%{transform:translate3d(-2%,-.6%,0) scale(1.06);animation-timing-function:cubic-bezier(.5,0,.6,.95)}100%{transform:translate3d(0,0,0) scale(1.056)}}
+  @keyframes fogFg{0%{transform:translate3d(0,0,0) scale(1.122);animation-timing-function:cubic-bezier(.5,.06,.5,.94)}24%{transform:translate3d(-2.6%,.7%,0) scale(1.132);animation-timing-function:cubic-bezier(.45,.03,.55,1)}51%{transform:translate3d(-.6%,1.5%,0) scale(1.138);animation-timing-function:cubic-bezier(.5,0,.5,.98)}77%{transform:translate3d(2.4%,.7%,0) scale(1.128);animation-timing-function:cubic-bezier(.55,.05,.6,.95)}100%{transform:translate3d(0,0,0) scale(1.122)}}
+  @keyframes rayPulse{0%{opacity:.05;animation-timing-function:cubic-bezier(.6,0,.7,.4)}38%{opacity:.13;animation-timing-function:cubic-bezier(.35,.4,.5,1)}55%{opacity:.07;animation-timing-function:cubic-bezier(.6,0,.6,.5)}82%{opacity:.155;animation-timing-function:cubic-bezier(.3,.5,.5,1)}100%{opacity:.05}}
+  @keyframes leafSway{0%{transform:rotate(-.2deg);animation-timing-function:cubic-bezier(.25,.7,.4,1)}19%{transform:rotate(.34deg);animation-timing-function:cubic-bezier(.5,0,.6,1)}43%{transform:rotate(-.14deg);animation-timing-function:cubic-bezier(.22,.75,.4,1)}61%{transform:rotate(.44deg);animation-timing-function:cubic-bezier(.5,0,.55,1)}84%{transform:rotate(-.28deg);animation-timing-function:cubic-bezier(.3,.6,.45,1)}100%{transform:rotate(-.2deg)}}
+  @keyframes driftUpA{0%{transform:translate3d(0,6%,0);opacity:0}10%{opacity:0}21%{opacity:.34}34%{opacity:0}100%{transform:translate3d(-2%,-9%,0);opacity:0}}
+  @keyframes driftUpB{0%{transform:translate3d(0,8%,0);opacity:0}50%{opacity:0}62%{opacity:.26}75%{opacity:0}100%{transform:translate3d(2.5%,-9%,0);opacity:0}}
+  @keyframes fadeUpQuiet{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:translateY(0)}}
+  #hero [data-layer] img{animation-play-state:var(--amb,running)!important}
+  @keyframes cueLine{0%,100%{transform:scaleY(.32);opacity:.28;animation-timing-function:cubic-bezier(.3,.55,.45,1)}48%{transform:scaleY(1);opacity:.82;animation-timing-function:cubic-bezier(.55,0,.6,.9)}}
+  @keyframes cueReveal{from{opacity:0}to{opacity:1}}
+  @keyframes introLift{0%,18%{opacity:1}100%{opacity:0}}
+  @keyframes filmRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001s!important}html{scroll-behavior:auto}}
+  @media (max-width:760px){[data-film-info]{grid-template-columns:1fr!important}[data-film-info]>div:first-child{display:none}[data-film-info]>div:last-child{justify-content:flex-end}}
+  @media (max-width:900px){[data-eh-frame]{height:clamp(46vh,52vh,56vh)!important}[data-owner-beat]{grid-template-columns:1fr!important}[data-owner-frame]{height:clamp(40vh,48vh,52vh)!important}[data-arrival-frame]{height:clamp(42vh,50vh,58vh)!important}}
+  @media (max-width:640px){[data-arrival-metrics]{flex-direction:column;gap:14px}[data-arrival-metrics]>span[aria-hidden]{width:28px;height:1px}}
+  @media (max-width:760px){[data-wtd-diagram]{display:none!important}[data-wtd-list]{display:flex!important}}
+  @media (max-width:760px){
+    [data-timeline-track]{height:auto!important}
+    [data-timeline-stage]{position:static!important;height:auto!important;overflow:visible!important;padding:clamp(48px,10vw,72px) clamp(20px,6vw,28px)!important}
+    [data-timeline-grid]{grid-template-columns:1fr!important;gap:clamp(32px,10vw,48px)!important}
+    [data-tl-time]{font-size:clamp(34px,11vw,44px)!important}
+    [data-tl-status]{font-size:clamp(18px,5vw,22px)!important}
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+</helmet>
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,4vw,40px);transition:background .4s,backdrop-filter .4s,opacity .25s ease" ref="{{ navRef }}">
+  <a href="#hero" style="display:flex;align-items:center;gap:12px;color:#F5FBF7">
+    <span style="font-family:var(--anton);font-size:23px;letter-spacing:.14em">TURF'D</span>
+  </a>
+  <button onClick="{{ toggleDrawer }}" aria-label="Open menu" style="width:48px;height:48px;border-radius:999px;background:rgba(10,58,38,.62);border:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+    <span style="width:20px;height:2px;background:#F5FBF7;display:block"></span>
+    <span style="width:20px;height:2px;background:#F5FBF7;display:block"></span>
+  </button>
+</nav>
+
+<div onClick="{{ closeDrawer }}" style="position:fixed;inset:0;z-index:70;background:rgba(4,48,31,.74);transition:opacity .4s ease;opacity:{{ backdropOpacity }};visibility:{{ drawerVis }};pointer-events:{{ drawerPE }}"></div>
+<aside style="position:fixed;top:0;right:0;bottom:0;z-index:80;width:100%;max-width:440px;background:#052E1E;border-left:1px solid rgba(255,255,255,.1);padding:26px clamp(28px,5vw,44px);display:flex;flex-direction:column;transition:transform .55s cubic-bezier(.16,1,.3,1);transform:translateX({{ drawerX }})">
+  <div style="display:flex;justify-content:flex-end">
+    <button onClick="{{ closeDrawer }}" aria-label="Close menu" style="width:48px;height:48px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#F5FBF7;font-size:22px">×</button>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:4px;margin-top:36px">
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+      <a href="{{ item.href }}" onClick="{{ item.onClick }}" style="display:flex;align-items:center;gap:16px;font-family:var(--anton);font-size:clamp(32px,7vw,46px);color:#F5FBF7;line-height:1.1;padding:6px 0" style-hover="color:#34D498">
+        <span style="width:8px;height:8px;border-radius:999px;background:#106043;flex-shrink:0"></span>
+        <span>{{ item.t }}</span>
+      </a>
+    </sc-for>
+  </div>
+  <div style="margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)">
+    <p style="font-size:14px;color:rgba(245,251,247,.6);margin:0">hello@turfd.pk · Islamabad, PK</p>
+  </div>
+</aside>
+
+<div data-hero-track style="position:relative;height:260svh;z-index:1">
+<section id="hero" style="position:sticky;top:0;height:100svh;display:flex;overflow:hidden;background:linear-gradient(180deg,#050c13 0%,#081a1c 46%,#0a1f18 100%)">
+
+  <!-- Environment · every layer dollies independently — no shared camera-rig/parent transform -->
+
+  <!-- Layer 1 · Sky · folded into the #hero section background (was a fully occluded z1 layer under the opaque pitch photo — same pixels, one fewer composited surface) -->
+  <!-- Layer 2 · Hero background (the pitch) · own dolly cell · grade baked into asset, mask replaced by painted sky fade -->
+  <div data-cam="pitch" style="position:absolute;inset:0;z-index:2;transform-origin:50% 62%;will-change:var(--wc,auto)">
+  <div data-layer="pitch" style="position:absolute;inset:0">
+    <img src="uploads/new-hero-graded.webp" srcset="uploads/new-hero-1024.webp 1024w, uploads/new-hero-1600.webp 1600w, uploads/new-hero-graded.webp 2752w" sizes="100vw" alt="Floodlit football facility at night" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%" />
+    <div data-pitch-scrim style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,12,19,.55) 0%,transparent 26%,transparent 70%,rgba(4,18,12,.55) 100%)"></div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 40% 46% at 74% 66%,rgba(255,244,214,.1),transparent 60%)"></div>
+    <div data-pitch-glow style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse 130% 120% at 55% 56%,rgba(255,247,224,.3),rgba(255,247,224,.13) 70%,rgba(255,247,224,.05))"></div>
+    <!-- top-fade · painted sky gradient replaces the animated mask-image (pitch blends into the sky, no mask under transform) -->
+    <div style="position:absolute;left:0;right:0;top:0;height:22%;pointer-events:none;background:linear-gradient(180deg,#050c13 0%,#06141b 42%,rgba(8,26,28,0) 100%)"></div>
+  </div>
+  </div>
+
+  <!-- Atmosphere · Background fog (slow) · own dolly cell -->
+  <div data-cam="fog-bg" style="position:absolute;inset:0;z-index:2;pointer-events:none;transform-origin:50% 62%;will-change:var(--wc,auto)">
+  <div data-layer="fog-bg" style="position:absolute;left:-8%;right:-8%;bottom:-6%;height:80%;opacity:.5">
+    <img src="uploads/fog-back-keyed.png" alt="" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;will-change:var(--wc,auto);backface-visibility:hidden;animation:fogBg 89s linear infinite" />
+  </div>
+  </div>
+
+  <!-- Atmosphere · Light rays · own dolly cell -->
+  <div data-cam="rays" style="position:absolute;inset:0;z-index:2;pointer-events:none;transform-origin:50% 62%;will-change:var(--wc,auto)">
+  <div data-layer="rays" style="position:absolute;top:-10%;right:-8%;width:82%;height:100%;opacity:.55;transform:scaleX(-1)">
+    <img src="uploads/light-rays-keyed.png" alt="" decoding="async" style="width:100%;height:100%;object-fit:contain;object-position:top center;animation:rayPulse 83s linear -34s infinite" />
+  </div>
+  </div>
+
+  <!-- Layer 4 · Midground (text scrim · horizon haze · edge grade) -->
+  <div data-layer="mist" style="position:absolute;inset:0;z-index:4;pointer-events:none;transform-origin:50% 62%;will-change:var(--wc,auto);background:radial-gradient(ellipse 80% 118% at 5% 60%,rgba(4,18,12,.95) 0%,rgba(4,18,12,.62) 30%,rgba(4,18,12,.22) 52%,transparent 71%),radial-gradient(ellipse 44% 58% at 28% 20%,rgba(4,18,12,.5),transparent 58%),radial-gradient(ellipse 40% 44% at 18% 92%,rgba(3,12,8,.55),transparent 60%),radial-gradient(ellipse 82% 42% at 52% 56%,rgba(150,190,160,.12),transparent 62%),linear-gradient(180deg,rgba(5,13,20,.42) 0%,transparent 22%,transparent 62%,#04301F 100%)"></div>
+  <div data-layer="vignette" style="position:absolute;inset:0;z-index:4;pointer-events:none;transform-origin:50% 62%;will-change:var(--wc,auto);background:radial-gradient(ellipse 128% 128% at 50% 50%,transparent 52%,rgba(0,0,0,.32) 82%,rgba(0,0,0,.5) 100%)"></div>
+
+  <!-- Atmosphere · Foreground fog · own dolly cell -->
+  <div data-cam="fog-fg" style="position:absolute;inset:0;z-index:4;pointer-events:none;transform-origin:50% 62%;will-change:var(--wc,auto)">
+  <div data-layer="fog-fg" style="position:absolute;left:-12%;right:-12%;bottom:-10%;height:56%;opacity:.4;transform:scaleX(-1)">
+    <img src="uploads/fog-front-keyed.png" alt="" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;will-change:var(--wc,auto);backface-visibility:hidden;animation:fogFg 107s linear -26s infinite" />
+  </div>
+  </div>
+
+  <!-- Layer 5 · Foreground leaves (bleeds past the viewport) · dollies then lifts faster -->
+  <div data-layer="leaves" style="position:absolute;top:-12%;left:-10%;right:-10%;height:66%;z-index:5;pointer-events:none;opacity:.94;transform-origin:50% 62%;will-change:var(--wc,auto)">
+    <img src="uploads/leaves-1400.webp" alt="" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top center;transform-origin:top center;will-change:var(--wc,auto);backface-visibility:hidden;animation:leafSway 67s linear -16s infinite" />
+  </div>
+
+  <!-- Atmosphere · Floating particles · own dolly cell -->
+  <div data-cam="particles" style="position:absolute;inset:0;z-index:5;pointer-events:none;transform-origin:50% 62%;will-change:var(--wc,auto)">
+  <div data-layer="particles" style="position:absolute;inset:-6%;opacity:.66">
+    <img src="uploads/particles-keyed.png" alt="" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:var(--wc,auto);backface-visibility:hidden;animation:driftUpA 47s ease-in-out infinite" />
+    <img src="uploads/particles-keyed.png" alt="" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right top;will-change:var(--wc,auto);backface-visibility:hidden;animation:driftUpB 59s ease-in-out -22s infinite" />
+  </div>
+  </div>
+
+  <!-- Layer 6 · Typography / content -->
+  <div data-layer="content" style="position:relative;z-index:6;width:100%;max-width:1280px;margin:0 auto;padding:clamp(104px,16vh,148px) clamp(20px,4vw,52px) clamp(72px,12vh,96px);display:flex;align-items:center">
+    <div style="width:min(100%,540px)">
+      <h1 style="font-family:var(--anton);font-size:clamp(2.9rem,6.6vw,5.8rem);line-height:.92;letter-spacing:-.005em;text-transform:uppercase;text-wrap:balance;margin:0;color:#F5FBF7;text-shadow:0 2px 30px rgba(0,0,0,.35)">
+        <span style="display:block;animation:filmRise 1.8s cubic-bezier(.16,1,.3,1) 4.4s both">The night belongs</span>
+        <span style="display:block;animation:filmRise 1.8s cubic-bezier(.16,1,.3,1) 5s both">to the played-in.</span>
+      </h1>
+
+      <p style="margin:clamp(22px,3.4vh,30px) 0 0 clamp(0px,2vw,30px);max-width:322px;font-size:clamp(15px,1.5vw,17px);line-height:1.62;text-wrap:pretty;color:rgba(245,251,247,.72);animation:filmRise 1.8s cubic-bezier(.16,1,.3,1) 6.4s both">
+        When the floodlights come on, the city goes home and the game begins. Find your pitch, gather your side, and claim the hours that are yours.
+      </p>
+
+      <div style="margin-top:clamp(30px,4.6vh,40px);display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 34px;animation:filmRise 1.8s cubic-bezier(.16,1,.3,1) 7.8s both">
+        <sc-if value="{{ heroDone }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:6px 0;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.62);animation:fadeUpQuiet 1.4s cubic-bezier(.16,1,.3,1) both">See you under the lights.</div>
+        </sc-if>
+        <sc-if value="{{ heroPending }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submitHero }}" style="display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap">
+            <input type="email" required placeholder="you@team.pk" style="width:min(58vw,236px);min-width:0;background:transparent;border:none;border-bottom:1px solid rgba(245,251,247,.28);outline:none;color:#F5FBF7;font-size:16px;padding:9px 0;transition:border-color .14s ease" style-focus="border-color:rgba(214,209,142,.7)" />
+            <button type="submit" style="background:transparent;border:none;border-bottom:1px solid rgba(214,209,142,.4);color:#D6D18E;font-weight:600;font-size:15px;white-space:nowrap;padding:9px 0;cursor:pointer;transition:border-color .14s ease,color .14s ease" style-hover="border-color:#D6D18E;color:#E6E2AC">Join the waitlist</button>
+          </form>
+        </sc-if>
+
+        <button onClick="{{ openVideo }}" style="background:transparent;border:none;border-bottom:1px solid rgba(245,251,247,.14);color:rgba(245,251,247,.66);font-weight:500;font-size:14px;padding:9px 0;cursor:pointer;transition:border-color .14s ease,color .14s ease" style-hover="border-color:rgba(245,251,247,.4);color:#F5FBF7">Watch the film</button>
+      </div>
+
+      <div style="margin-top:clamp(30px,5vh,44px);font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,251,247,.42);animation:filmRise 1.8s cubic-bezier(.16,1,.3,1) 8.8s both">Launching Islamabad · Q4 2026</div>
+    </div>
+  </div>
+
+  <!-- Atmosphere · light + mist grazing the text (immersion, not a container) -->
+  <div data-layer="text-air" aria-hidden="true" style="position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.6">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 58% 78% at 64% 32%,rgba(240,238,214,.05),transparent 60%)"></div>
+    <div style="position:absolute;left:-6%;right:38%;bottom:0;height:36%;background:radial-gradient(ellipse 80% 100% at 28% 100%,rgba(182,206,192,.05),transparent 68%)"></div>
+  </div>
+
+  <!-- scroll cue -->
+  <div data-layer="scroll-cue" style="position:absolute;right:clamp(20px,4vw,52px);bottom:34px;z-index:6;display:flex;align-items:center;gap:10px;opacity:0;animation:cueReveal 1.8s ease 10s both">
+    <span style="display:block;width:1px;height:44px;background:linear-gradient(180deg,transparent,rgba(245,251,247,.55) 30%,transparent);transform-origin:top;animation:cueLine 6s cubic-bezier(.45,0,.55,1) infinite"></span>
+  </div>
+
+  <!-- Atmosphere · Fine film grain (almost imperceptible) -->
+  <div data-layer="grain" aria-hidden="true" style="position:absolute;inset:0;z-index:7;pointer-events:none;opacity:.035;background-image:url(uploads/grain.png);background-repeat:repeat;background-size:256px 256px"></div>
+
+  <!-- Film open · the place emerges from black (only the floodlight glows first) -->
+  <div data-layer="intro-veil" aria-hidden="true" style="position:absolute;inset:0;z-index:8;pointer-events:none;opacity:0;background:radial-gradient(ellipse 52% 48% at 60% 33%,rgba(40,46,28,.42),rgba(3,9,6,.99) 62%),#020603;animation:introLift 4.6s cubic-bezier(.42,0,.3,1) both"></div>
+</section>
+</div>
+<!-- /hero-track -->
+
+<!-- Recognition · the hero dissolves into the moment every game actually begins -->
+<section aria-label="How every game gets organized" data-recog style="position:relative;background:linear-gradient(180deg,#0a1f18 0%,#071a12 26%,#04120C 100%)">
+
+  <!-- Pinned stage · the conversation plays, then dims as the bridge line surfaces over it -->
+  <div data-recog-stage style="position:sticky;top:0;height:100svh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:clamp(48px,6vh,100px) clamp(20px,3.5vw,48px)">
+
+    <div data-recog-content style="max-width:1200px;width:100%;margin:0 auto;display:flex;flex-wrap:nowrap;align-items:center;gap:clamp(16px,3vw,56px);transition:opacity 1.6s ease,filter 1.6s ease">
+
+      <!-- LEFT · editorial -->
+      <div data-reveal style="flex:1 1 300px;min-width:0">
+        <div style="font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#34D498;opacity:.9">Every game starts the same way</div>
+        <h2 style="font-family:var(--inter);font-weight:600;font-size:clamp(1.7rem,4.2vw,4.6rem);line-height:1.05;letter-spacing:-.025em;color:#F5FBF7;margin:clamp(14px,2vw,32px) 0 0;text-wrap:balance">Same game.<br />Same routine.</h2>
+        <div style="max-width:38ch;margin:clamp(16px,2.6vw,42px) 0 0;display:flex;flex-direction:column;gap:8px;font-size:clamp(12px,1vw,19px);line-height:1.5;color:#A9C6B7">
+          <p style="margin:0">Every football game starts long before kickoff.</p>
+          <p style="margin:0">Someone calls the owner.</p>
+          <p style="margin:0">Someone checks the group chat.</p>
+          <p style="margin:0">Someone hears the pitch is already taken.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT · an editorial interpretation of a chat, held in one quiet column -->
+      <div data-recog-convo style="flex:1 1 320px;width:100%;max-width:480px;min-width:0;margin-left:clamp(-40px,-3vw,0px);display:flex;flex-direction:column;gap:clamp(8px,1.6vw,26px)">
+        <div data-recog-msg style="align-self:flex-start;max-width:78%;padding:13px 19px;border-radius:16px;background:rgba(255,255,255,.06);font-size:clamp(.82rem,1.3vw,1.25rem);line-height:1.45;letter-spacing:-.01em;color:#D8E8DF">who&rsquo;s sorting tonight?</div>
+        <div data-recog-msg style="align-self:flex-end;text-align:right;max-width:78%;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.07);font-size:clamp(.82rem,1.3vw,1.25rem);line-height:1.45;letter-spacing:-.01em;color:#D8E8DF">checking F10</div>
+        <div data-recog-msg style="align-self:flex-start;max-width:78%;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.06);font-size:clamp(.82rem,1.3vw,1.25rem);line-height:1.45;letter-spacing:-.01em;color:#D8E8DF">busy</div>
+        <div data-recog-msg style="align-self:flex-end;text-align:right;max-width:78%;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.07);font-size:clamp(.82rem,1.3vw,1.25rem);line-height:1.45;letter-spacing:-.01em;color:#D8E8DF">try E11</div>
+        <div data-recog-msg style="align-self:flex-start;max-width:78%;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.06);font-size:clamp(.82rem,1.3vw,1.25rem);line-height:1.45;letter-spacing:-.01em;color:#D8E8DF">owner isn&rsquo;t answering</div>
+        <div data-recog-msg style="align-self:flex-end;text-align:right;max-width:82%;margin-top:clamp(22px,4vw,44px);padding:11px 16px;border-radius:14px;background:rgba(255,255,255,.09);font-family:var(--inter);font-weight:600;font-size:clamp(1.05rem,2.2vw,2.1rem);line-height:1.15;letter-spacing:-.02em;color:#F5FBF7">already booked</div>
+      </div>
+    </div>
+
+    <!-- Bridge line · surfaces centered over the dimmed conversation as the new headline -->
+    <div data-recog-line style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(22px,5vw,56px);pointer-events:none">
+      <p style="margin:0;max-width:16ch;font-family:var(--inter);font-weight:500;font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.12;letter-spacing:-.03em;color:#F5FBF7;text-wrap:balance">It doesn&rsquo;t have to start this way<span style="color:#34D498">.</span></p>
+    </div>
+  </div>
+
+  <!-- Scroll travel · pins the stage long enough for the reveal to happen on scroll -->
+  <div data-recog-trigger aria-hidden="true" style="height:200vh"></div>
+</section>
+
+<!-- Live availability · five scroll-pinned chapters, motion driven entirely by scroll position -->
+<section aria-label="Live availability, always trustworthy" style="position:relative;background:#000">
+  <div data-timeline-track style="position:relative;height:420vh">
+    <div data-timeline-stage style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;padding:clamp(32px,6vh,120px) clamp(24px,5vw,72px)">
+      <div data-timeline-grid style="width:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(48px,7vw,120px);align-items:center">
+        <div>
+          <h2 style="margin:0;font-family:var(--anton);font-size:clamp(2.3rem,5vw,4.2rem);line-height:1.02;text-transform:uppercase;letter-spacing:-.01em;color:#F5FBF7;max-width:15ch;text-wrap:balance">The only thing that should change is the score.</h2>
+          <p style="margin:clamp(28px,4.5vh,44px) 0 0;max-width:23ch;font-size:clamp(18px,1.3vw,20px);line-height:1.85;color:#A9C6B7">Every slot updates live. If it&rsquo;s available, it&rsquo;s really available.</p>
+        </div>
+        <div data-timeline-rows style="display:flex;flex-direction:column">
+          <div data-tl-live-indicator style="display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,251,247,.45);opacity:0;margin-bottom:clamp(20px,3vh,32px)"><span style="color:#34D498">Live</span><span data-tl-live-ts>Updated just now</span></div>
+          <div data-tl-row data-tl-idx="0" style="display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:clamp(20px,3vw,40px);padding:clamp(8px,2.2vh,30px) 0;border-top:1px solid rgba(255,255,255,.08)"><span data-tl-time style="font-family:var(--inter);font-weight:500;font-size:clamp(60px,6.5vw,80px);line-height:1.05;letter-spacing:-.01em;color:#F5FBF7;opacity:0;transition:opacity .9s ease">6:00 PM</span><span data-tl-status style="font-family:var(--mono);font-size:clamp(28px,3vw,36px);letter-spacing:.02em;text-transform:uppercase;text-align:right;color:rgba(245,251,247,.45);opacity:0;transition:opacity .5s ease">Booked</span></div>
+          <div data-tl-row data-tl-idx="1" data-tl-live="true" style="display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:clamp(20px,3vw,40px);padding:clamp(8px,2.2vh,30px) 0;border-top:1px solid rgba(255,255,255,.08)"><span data-tl-time style="font-family:var(--inter);font-weight:500;font-size:clamp(60px,6.5vw,80px);line-height:1.05;letter-spacing:-.01em;color:#F5FBF7;opacity:0;transition:opacity .9s ease">7:00 PM</span><span data-tl-status style="font-family:var(--mono);font-size:clamp(28px,3vw,36px);letter-spacing:.02em;text-transform:uppercase;text-align:right;color:#34D498;opacity:0;transition:opacity .5s ease">Available</span></div>
+          <div data-tl-row data-tl-idx="2" style="display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:clamp(20px,3vw,40px);padding:clamp(8px,2.2vh,30px) 0;border-top:1px solid rgba(255,255,255,.08)"><span data-tl-time style="font-family:var(--inter);font-weight:500;font-size:clamp(60px,6.5vw,80px);line-height:1.05;letter-spacing:-.01em;color:#F5FBF7;opacity:0;transition:opacity .9s ease">8:00 PM</span><span data-tl-status style="font-family:var(--mono);font-size:clamp(28px,3vw,36px);letter-spacing:.02em;text-transform:uppercase;text-align:right;color:#D9A24B;opacity:0;transition:opacity .5s ease">Held</span></div>
+          <div data-tl-row data-tl-idx="3" style="display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:clamp(20px,3vw,40px);padding:clamp(8px,2.2vh,30px) 0;border-top:1px solid rgba(255,255,255,.08)"><span data-tl-time style="font-family:var(--inter);font-weight:500;font-size:clamp(60px,6.5vw,80px);line-height:1.05;letter-spacing:-.01em;color:#F5FBF7;opacity:0;transition:opacity .9s ease">9:00 PM</span><span data-tl-status style="font-family:var(--mono);font-size:clamp(28px,3vw,36px);letter-spacing:.02em;text-transform:uppercase;text-align:right;color:rgba(245,251,247,.45);opacity:0;transition:opacity .5s ease">Booked</span></div>
+          <div data-tl-row data-tl-idx="4" style="display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:clamp(20px,3vw,40px);padding:clamp(8px,2.2vh,30px) 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)"><span data-tl-time style="font-family:var(--inter);font-weight:500;font-size:clamp(60px,6.5vw,80px);line-height:1.05;letter-spacing:-.01em;color:#F5FBF7;opacity:0;transition:opacity .9s ease">10:00 PM</span><span data-tl-status style="font-family:var(--mono);font-size:clamp(28px,3vw,36px);letter-spacing:.02em;text-transform:uppercase;text-align:right;color:#34D498;opacity:0;transition:opacity .5s ease">Available</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div onClick="{{ closeVideo }}" style="position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(3,12,8,.93);transition:opacity .4s ease;opacity:{{ videoOpacity }};visibility:{{ videoVis }};pointer-events:{{ videoPE }}">
+  <div onClick="{{ stopProp }}" style="position:relative;width:min(100%,980px);aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,#0A2418,#04120C);border:1px solid rgba(255,255,255,.14);box-shadow:0 60px 140px -40px rgba(0,0,0,.9);transition:transform .55s cubic-bezier(.16,1,.3,1);transform:scale({{ videoScale }})">
+    <img src="uploads/5a-side.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32" />
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 45%,rgba(4,18,12,.2),rgba(4,18,12,.75))"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px">
+      <span style="width:74px;height:74px;border-radius:999px;background:rgba(198,255,60,.14);border:1px solid rgba(198,255,60,.5);display:flex;align-items:center;justify-content:center;animation:glowPulse 2.8s ease-in-out infinite"><span style="width:0;height:0;border-left:20px solid #C6FF3C;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px"></span></span>
+      <div style="font-family:var(--anton);font-size:clamp(1.6rem,3.6vw,2.6rem);text-transform:uppercase;color:#F5FBF7;letter-spacing:.01em">Product preview</div>
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#C6FF3C">Dropping with launch · Q4 2026</div>
+    </div>
+    <button onClick="{{ closeVideo }}" aria-label="Close preview" style="position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;background:rgba(4,18,12,.6);border:1px solid rgba(255,255,255,.18);color:#F5FBF7;font-size:20px">×</button>
+  </div>
+</div>
+
+<!-- Section 4 · empty hours — one full-bleed photograph, one line, nothing else -->
+<section id="process" aria-label="The cost of an empty pitch" style="min-height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,4.5vh,52px);background:#04120C;padding:clamp(56px,8vh,96px) clamp(20px,5vw,72px)">
+  <div style="width:100%;max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,4.5vh,52px)">
+
+    <div data-eh-frame style="position:relative;width:100%;height:clamp(58vh,66vh,70vh);overflow:hidden;background:#06140E">
+      <img data-eh-img src="uploads/section-4-1.png" alt="An empty floodlit five-a-side pitch behind a chain-link fence at dusk, no players on the field" width="1680" height="945" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;animation:envDrift 19s ease-in-out infinite alternate;animation-play-state:paused;will-change:transform" />
+      <span style="position:absolute;top:clamp(18px,2.6vw,30px);left:clamp(18px,2.6vw,30px);font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#F5FBF7">Empty Hours</span>
+    </div>
+
+    <h2 style="font-family:var(--anton);font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:.98;text-transform:uppercase;letter-spacing:-.01em;color:#F5FBF7;margin:0;max-width:19ch;text-align:left;text-wrap:balance">Every empty hour costs more than electricity.</h2>
+
+    <div data-owner-beat style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding-top:clamp(52px,8vh,96px)">
+      <div data-owner-frame style="position:relative;width:100%;height:clamp(52vh,60vh,66vh);overflow:hidden;background:#06140E">
+        <img data-owner-img src="uploads/section-4-2.png" alt="A pitch owner standing at the gate of his lit five-a-side pitch at dusk, looking out past the empty field" width="1122" height="1400" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:28% 30%;animation:envDrift 22s ease-in-out infinite alternate;animation-play-state:paused;will-change:transform" />
+      </div>
+      <div>
+        <span data-owner-line style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#34D498">For Owners</span>
+        <h3 data-owner-line style="font-family:var(--anton);font-size:clamp(2rem,3.6vw,3rem);line-height:1.04;text-transform:uppercase;letter-spacing:-.01em;color:#F5FBF7;margin:clamp(14px,2vh,20px) 0 0;max-width:16ch;text-wrap:balance">Empty evenings don&rsquo;t have to stay empty.</h3>
+        <p data-owner-line style="color:#B6D2C4;font-size:clamp(16px,1.3vw,18px);line-height:1.6;margin:clamp(20px,2.8vh,28px) 0 0;max-width:36ch">People are already looking for somewhere to play.</p>
+        <p data-owner-line style="color:#B6D2C4;font-size:clamp(16px,1.3vw,18px);line-height:1.6;margin:10px 0 0;max-width:36ch">They just don&rsquo;t know you&rsquo;re available.</p>
+        <p data-owner-line style="color:#F5FBF7;font-size:clamp(16px,1.3vw,18px);line-height:1.6;margin:clamp(18px,2.4vh,24px) 0 0;max-width:30ch">Turf&rsquo;d connects those two moments.</p>
+      </div>
+    </div>
+
+    <div data-arrival-beat style="padding-top:clamp(52px,8vh,96px)">
+      <div data-arrival-frame style="position:relative;width:100%;height:clamp(56vh,64vh,72vh);overflow:hidden;background:#06140E">
+        <img src="uploads/section-4-3.png" alt="A group of players walking through the gate onto a floodlit five-a-side pitch where a match is underway" width="1680" height="945" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%" />
+        <span style="position:absolute;bottom:clamp(20px,3vw,32px);left:clamp(18px,2.6vw,30px);font-family:var(--inter);font-weight:500;font-size:clamp(1.3rem,2.4vw,2rem);letter-spacing:-.02em;color:#F5FBF7;text-shadow:0 2px 18px rgba(0,0,0,.55)">Tonight looks different.</span>
+      </div>
+      <div data-arrival-metrics style="display:flex;align-items:center;justify-content:center;gap:clamp(20px,3vw,40px);margin-top:clamp(28px,4vh,44px)">
+        <span data-arrival-metric style="font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#B6D2C4;text-align:center">+4 bookings</span>
+        <span aria-hidden="true" style="width:1px;height:16px;background:rgba(182,210,196,.3)"></span>
+        <span data-arrival-metric style="font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#B6D2C4;text-align:center">2 empty hours filled</span>
+        <span aria-hidden="true" style="width:1px;height:16px;background:rgba(182,210,196,.3)"></span>
+        <span data-arrival-metric style="font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#B6D2C4;text-align:center">One less WhatsApp conversation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="why-turf-d" style="position:relative;overflow:hidden;padding:clamp(110px,14vw,175px) clamp(20px,4vw,40px)">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle 42% at 50% 58%,rgba(16,96,67,.055),transparent 74%)"></div>
+  <div style="position:relative;max-width:1120px;margin:0 auto">
+    <div data-reveal style="text-align:center;max-width:640px;margin:0 auto">
+      <span style="font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,251,247,.5)">Why Turf'd</span>
+      <h2 style="font-family:var(--anton);font-size:clamp(2.4rem,6vw,4.8rem);line-height:.95;text-transform:uppercase;letter-spacing:-.01em;margin:16px 0 0"><span style="color:#C6FF3C">One tap.</span><br />An entire evening moves.</h2>
+      <p style="color:rgba(245,251,247,.7);font-size:clamp(16px,1.5vw,18px);line-height:1.6;margin:20px 0 0;max-width:520px;margin-left:auto;margin-right:auto">A single booking sets six systems in motion at once — in the right order, without anyone touching a phone twice.</p>
+    </div>
+
+    <div data-wtd-diagram data-reveal style="position:relative;width:65%;min-width:560px;max-width:760px;aspect-ratio:1;margin:clamp(84px,11vw,140px) auto 0">
+      <svg viewBox="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+        <defs>
+          <filter id="nodeGlow" x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur stdDeviation="0.5" />
+          </filter>
+          <marker id="wtdArrow" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 Z" fill="rgba(245,251,247,.4)" />
+          </marker>
+        </defs>
+        <path data-wtd-path="1" d="M50,50 L50,12" fill="none" stroke="rgba(198,255,60,.22)" stroke-width="0.26" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" />
+        <path data-wtd-path="2" d="M50,12 Q70.5,14.49 82.91,31" fill="none" stroke="rgba(245,251,247,.16)" stroke-width="0.32" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#wtdArrow)" />
+        <path data-wtd-path="3" d="M82.91,31 Q91,50 82.91,69" fill="none" stroke="rgba(245,251,247,.16)" stroke-width="0.32" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#wtdArrow)" />
+        <path data-wtd-path="4" d="M82.91,69 Q70.5,85.51 50,88" fill="none" stroke="rgba(245,251,247,.16)" stroke-width="0.32" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#wtdArrow)" />
+        <path data-wtd-path="5" d="M50,88 Q29.5,85.51 17.09,69" fill="none" stroke="rgba(245,251,247,.16)" stroke-width="0.32" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#wtdArrow)" />
+        <path data-wtd-path="6" d="M17.09,69 Q9,50 17.09,31" fill="none" stroke="rgba(245,251,247,.16)" stroke-width="0.32" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#wtdArrow)" />
+        <path data-wtd-path="7" d="M17.09,31 Q29.5,14.5 50,12" fill="none" stroke="rgba(245,251,247,.16)" stroke-width="0.32" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" marker-end="url(#wtdArrow)" />
+        <circle data-wtd-node="live-discovery" fill="#F5FBF7" stroke="rgba(255,255,255,.22)" stroke-width="0.15" opacity="0.38" cx="50" cy="12" r="1.15" style="transform-origin:50px 12px;transform:scale(.92);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1),fill .4s ease;cursor:pointer" />
+        <circle data-wtd-node="slot-lock" fill="#F5FBF7" stroke="rgba(255,255,255,.22)" stroke-width="0.15" opacity="0.38" cx="82.91" cy="31" r="1.15" style="transform-origin:82.91px 31px;transform:scale(.92);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1),fill .4s ease;cursor:pointer" />
+        <circle data-wtd-node="payment" fill="#F5FBF7" stroke="rgba(255,255,255,.22)" stroke-width="0.15" opacity="0.38" cx="82.91" cy="69" r="1.15" style="transform-origin:82.91px 69px;transform:scale(.92);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1),fill .4s ease;cursor:pointer" />
+        <circle data-wtd-node="booking-confirmed" fill="#F5FBF7" stroke="rgba(255,255,255,.22)" stroke-width="0.15" opacity="0.38" cx="50" cy="88" r="1.15" style="transform-origin:50px 88px;transform:scale(.92);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1),fill .4s ease;cursor:pointer" />
+        <circle data-wtd-node="owner-dashboard" fill="#F5FBF7" stroke="rgba(255,255,255,.22)" stroke-width="0.15" opacity="0.38" cx="17.09" cy="69" r="1.15" style="transform-origin:17.09px 69px;transform:scale(.92);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1),fill .4s ease;cursor:pointer" />
+        <circle data-wtd-node="game-night" fill="#F5FBF7" stroke="rgba(255,255,255,.22)" stroke-width="0.15" opacity="0.38" cx="17.09" cy="31" r="1.15" style="transform-origin:17.09px 31px;transform:scale(.92);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1),fill .4s ease;cursor:pointer" />
+        <circle data-wtd-particle r="1.2" fill="#C6FF3C" opacity="0" />
+        <circle data-wtd-pulse-ring r="1.4" fill="none" stroke="#7DEDBF" stroke-width="0.28" opacity="0" />
+      </svg>
+
+      <div data-wtd-center style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);opacity:0;transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);width:clamp(98px,13.3vw,136px);height:clamp(98px,13.3vw,136px);border-radius:999px;background:radial-gradient(circle at 40% 32%,#0E7A4E,#04301F);border:1px solid rgba(198,255,60,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 40px -18px rgba(0,0,0,.6);z-index:2">
+        <span style="font-family:var(--anton);font-size:clamp(18px,3vw,28px);color:#F5FBF7;letter-spacing:.04em;line-height:1">TURF'D</span>
+        <span style="font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#C6FF3C;margin-top:5px">One tap</span>
+      </div>
+
+      <div data-wtd-card="booking-confirmed" style="position:absolute;top:97%;left:50%;transform:translateX(-50%) translateY(12px);opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .56s cubic-bezier(.3,1.4,.4,1);width:clamp(154px,20vw,184px);background:#06180F;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);text-align:left;z-index:1;cursor:pointer">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <div style="display:flex;align-items:center;gap:5px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="rgba(245,251,247,.45)" stroke-width="1.4"><rect x="3.5" y="3.5" width="3" height="3" /><rect x="9.5" y="3.5" width="3" height="3" /><rect x="3.5" y="9.5" width="3" height="3" /><rect x="9.5" y="9.5" width="3" height="3" /></svg><span style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.42)">Check-in</span></div>
+          <span style="font-family:var(--mono);font-size:9px;color:rgba(245,251,247,.35)">7:00 PM</span>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin:8px 0"></div>
+        <div style="font-family:var(--inter);font-weight:600;font-size:13.5px;color:#F5FBF7">QR verified</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <span data-wtd-dot style="opacity:0;transition:opacity .4s ease .15s;font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(52,212,152,.15);color:#34D498">&#10003; Confirmed</span>
+          <span style="font-family:var(--mono);font-size:9.5px;color:#9EBDAE">Court B</span>
+        </div>
+      </div>
+      <div data-wtd-card="live-discovery" style="position:absolute;top:0%;left:50%;transform:translateX(-50%) translateY(12px);opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .56s cubic-bezier(.3,1.4,.4,1);width:clamp(154px,20vw,184px);background:#06180F;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);text-align:left;z-index:1;cursor:pointer">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <div style="display:flex;align-items:center;gap:5px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="rgba(245,251,247,.45)" stroke-width="1.4"><circle cx="8" cy="8" r="5.2" /><circle cx="8" cy="8" r="1.3" fill="rgba(245,251,247,.45)" stroke="none" /></svg><span style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.42)">Nearby</span></div>
+          <span data-wtd-dot style="opacity:0;transition:opacity .4s ease .15s;font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:999px;background:rgba(52,212,152,.15);color:#34D498">Live</span>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin:8px 0"></div>
+        <div style="font-family:var(--inter);font-weight:600;font-size:13.5px;color:#F5FBF7">14 courts open</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <span style="font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.06);color:#9EBDAE">Futsal</span>
+          <span style="font-family:var(--mono);font-size:9.5px;color:#9EBDAE">0.8 km</span>
+        </div>
+      </div>
+      <div data-wtd-card="slot-lock" style="position:absolute;top:18%;right:2%;transform:translateY(12px);opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .56s cubic-bezier(.3,1.4,.4,1);width:clamp(154px,20vw,184px);background:#06180F;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);text-align:right;z-index:1;cursor:pointer">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-family:var(--mono);font-size:9px;color:rgba(245,251,247,.35)">00:47</span>
+          <div style="display:flex;align-items:center;gap:5px"><span style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.42)">Slot</span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="rgba(245,251,247,.45)" stroke-width="1.4"><rect x="4" y="7" width="8" height="6" rx="1" /><path d="M6,7 V5 a2,2 0 0 1 4,0 V7" /></svg></div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin:8px 0"></div>
+        <div style="font-family:var(--inter);font-weight:600;font-size:13.5px;color:#F5FBF7">Court B &middot; 7:00 PM</div>
+        <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:6px">
+          <span style="font-family:var(--mono);font-size:9.5px;color:#9EBDAE">Sat, Aug 8</span>
+          <span data-wtd-dot style="opacity:0;transition:opacity .4s ease .15s;font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(255,178,122,.15);color:#FFB27A">Locked</span>
+        </div>
+      </div>
+      <div data-wtd-card="payment" style="position:absolute;top:73%;right:2%;transform:translateY(12px);opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .56s cubic-bezier(.3,1.4,.4,1);width:clamp(154px,20vw,184px);background:#06180F;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);text-align:right;z-index:1;cursor:pointer">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <span style="font-family:var(--mono);font-size:9px;color:rgba(245,251,247,.35)">Rs 2,400</span>
+          <div style="display:flex;align-items:center;gap:5px"><span style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.42)">Payment</span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="rgba(245,251,247,.45)" stroke-width="1.4"><circle cx="8" cy="8" r="6" /><path d="M5.5,8.2 L7.2,10 L10.5,6" /></svg></div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin:8px 0"></div>
+        <div style="font-family:var(--inter);font-weight:600;font-size:13.5px;color:#F5FBF7">EasyPaisa</div>
+        <div style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:6px">
+          <span style="font-family:var(--mono);font-size:9.5px;color:#9EBDAE">Txn #4471</span>
+          <span data-wtd-dot style="opacity:0;transition:opacity .4s ease .15s;font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(52,212,152,.15);color:#34D498">Completed</span>
+        </div>
+      </div>
+      <div data-wtd-card="owner-dashboard" style="position:absolute;top:65%;left:2%;transform:translateY(12px);opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .56s cubic-bezier(.3,1.4,.4,1);width:clamp(154px,20vw,184px);background:#06180F;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);text-align:left;z-index:1;cursor:pointer">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <div style="display:flex;align-items:center;gap:5px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="rgba(245,251,247,.45)" stroke-width="1.4"><rect x="3" y="9" width="2.5" height="4" /><rect x="6.8" y="6" width="2.5" height="7" /><rect x="10.6" y="3" width="2.5" height="10" /></svg><span style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.42)">Owner</span></div>
+          <span style="font-family:var(--mono);font-size:9px;color:rgba(245,251,247,.35)">Today</span>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin:8px 0"></div>
+        <div style="font-family:var(--inter);font-weight:600;font-size:13.5px;color:#F5FBF7">New booking</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <span data-wtd-dot style="opacity:0;transition:opacity .4s ease .15s;font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(198,255,60,.15);color:#C6FF3C">+Rs 4,500</span>
+          <span style="font-family:var(--mono);font-size:9.5px;color:#9EBDAE">3 today</span>
+        </div>
+      </div>
+      <div data-wtd-card="game-night" style="position:absolute;top:15%;left:2%;transform:translateY(12px);opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .56s cubic-bezier(.3,1.4,.4,1);width:clamp(154px,20vw,184px);background:#06180F;border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);text-align:left;z-index:1;cursor:pointer">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <div style="display:flex;align-items:center;gap:5px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="rgba(245,251,247,.45)" stroke-width="1.2"><path d="M8,2 L9.8,6.2 L14,6.6 L10.8,9.6 L11.8,14 L8,11.6 L4.2,14 L5.2,9.6 L2,6.6 L6.2,6.2 Z" /></svg><span style="font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,251,247,.42)">Review</span></div>
+          <span style="font-family:var(--mono);font-size:9px;color:rgba(245,251,247,.35)">Just now</span>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin:8px 0"></div>
+        <div data-wtd-dot style="font-family:var(--inter);font-weight:600;font-size:13.5px;color:#C6FF3C;letter-spacing:.05em;opacity:0;transition:opacity .4s ease .15s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <span style="font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.06);color:#9EBDAE">Great pitch</span>
+          <span style="font-family:var(--mono);font-size:9.5px;color:#9EBDAE">Court B</span>
+        </div>
+      </div>
+    </div>
+
+    <div data-wtd-list data-reveal style="display:none;flex-direction:column;gap:0;max-width:420px;margin:clamp(60px,9vw,90px) auto 0;position:relative;padding-left:28px">
+      <div style="position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:rgba(255,255,255,.15)"></div>
+      <div style="position:relative;padding:0 0 28px">
+        <span style="position:absolute;left:-28px;top:2px;width:14px;height:14px;border-radius:999px;background:#04120C;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:6px;color:rgba(245,251,247,.55)">01</span>
+        <h3 style="font-family:var(--inter);font-weight:600;font-size:15px;color:#F5FBF7;margin:0">Live Discovery</h3>
+        <p style="color:#9EBDAE;font-size:13px;line-height:1.6;margin:4px 0 0">See what's open, priced and lit — live.</p>
+      </div>
+      <div style="position:relative;padding:0 0 28px">
+        <span style="position:absolute;left:-28px;top:2px;width:14px;height:14px;border-radius:999px;background:#04120C;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:6px;color:rgba(245,251,247,.55)">02</span>
+        <h3 style="font-family:var(--inter);font-weight:600;font-size:15px;color:#F5FBF7;margin:0">Slot Lock</h3>
+        <p style="color:#9EBDAE;font-size:13px;line-height:1.6;margin:4px 0 0">Tapped once, held for you while you pay.</p>
+      </div>
+      <div style="position:relative;padding:0 0 28px">
+        <span style="position:absolute;left:-28px;top:2px;width:14px;height:14px;border-radius:999px;background:#04120C;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:6px;color:rgba(245,251,247,.55)">03</span>
+        <h3 style="font-family:var(--inter);font-weight:600;font-size:15px;color:#F5FBF7;margin:0">Payments</h3>
+        <p style="color:#9EBDAE;font-size:13px;line-height:1.6;margin:4px 0 0">EasyPaisa or JazzCash clears in seconds.</p>
+      </div>
+      <div style="position:relative;padding:0 0 28px">
+        <span style="position:absolute;left:-28px;top:2px;width:14px;height:14px;border-radius:999px;background:#04120C;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:6px;color:rgba(245,251,247,.55)">04</span>
+        <h3 style="font-family:var(--inter);font-weight:600;font-size:15px;color:#F5FBF7;margin:0">Owner Dashboard</h3>
+        <p style="color:#9EBDAE;font-size:13px;line-height:1.6;margin:4px 0 0">Bookings and revenue, in one screen.</p>
+      </div>
+      <div style="position:relative;padding:0 0 28px">
+        <span style="position:absolute;left:-28px;top:2px;width:14px;height:14px;border-radius:999px;background:#04120C;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:6px;color:rgba(245,251,247,.55)">05</span>
+        <h3 style="font-family:var(--inter);font-weight:600;font-size:15px;color:#F5FBF7;margin:0">Booking Confirmed</h3>
+        <p style="color:#9EBDAE;font-size:13px;line-height:1.6;margin:4px 0 0">Everyone in the squad gets the same receipt.</p>
+      </div>
+      <div style="position:relative;padding:0">
+        <span style="position:absolute;left:-28px;top:2px;width:14px;height:14px;border-radius:999px;background:#04120C;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:6px;color:rgba(245,251,247,.55)">06</span>
+        <h3 style="font-family:var(--inter);font-weight:600;font-size:15px;color:#F5FBF7;margin:0">Game Night</h3>
+        <p style="color:#9EBDAE;font-size:13px;line-height:1.6;margin:4px 0 0">Show up. The lights are already on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="max-width:820px;margin:0 auto;padding:clamp(96px,13vw,150px) clamp(20px,4vw,40px)">
+  <div data-reveal>
+    <span style="font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#34D498">Questions, answered</span>
+    <h2 style="font-family:var(--anton);font-size:clamp(2.4rem,6vw,4.8rem);line-height:.95;text-transform:uppercase;letter-spacing:-.01em;margin:16px 0 44px">Ask the <span style="color:#34D498;text-shadow:0 0 40px rgba(52,212,152,.5)">team.</span></h2>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:26px">
+    <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="4">
+      <div data-reveal>
+        <div onClick="{{ item.onOpen }}" style="display:flex;align-items:flex-start;justify-content:flex-end;gap:12px;cursor:pointer">
+          <div style="max-width:min(80%,540px);padding:14px 20px;border-radius:22px 22px 6px 22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);transition:background .14s ease,border-color .14s ease;overflow-wrap:anywhere" style-hover="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)">
+            <div style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,251,247,.4);margin-bottom:4px">You</div>
+            <div style="font-size:clamp(15px,1.6vw,18px);line-height:1.6">{{ item.q }}</div>
+          </div>
+          <div style="width:36px;height:36px;flex-shrink:0;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">U</div>
+        </div>
+        <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:flex-start;gap:12px;margin-top:14px">
+            <div style="width:36px;height:36px;flex-shrink:0;border-radius:999px;background:radial-gradient(circle at 35% 30%,#7DEDBF,#34D498 60%,#106043);display:flex;align-items:center;justify-content:center;font-family:var(--anton);font-size:18px;color:#04301F;box-shadow:0 0 18px rgba(52,212,152,.6)">T</div>
+            <div style="max-width:min(82%,560px);padding:16px 20px;border-radius:22px 22px 22px 6px;background:linear-gradient(135deg,#106043,#0A3A26);box-shadow:0 10px 40px -10px rgba(16,96,67,.8);overflow-wrap:anywhere">
+              <div style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#7DEDBF;margin-bottom:6px">Turf'd</div>
+              <sc-if value="{{ item.typing }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;gap:5px;padding:4px 0">
+                  <span style="width:7px;height:7px;border-radius:999px;background:#7DEDBF;animation:typedot 1.2s ease-in-out infinite"></span>
+                  <span style="width:7px;height:7px;border-radius:999px;background:#7DEDBF;animation:typedot 1.2s ease-in-out .2s infinite"></span>
+                  <span style="width:7px;height:7px;border-radius:999px;background:#7DEDBF;animation:typedot 1.2s ease-in-out .4s infinite"></span>
+                </div>
+              </sc-if>
+              <div style="font-size:16px;line-height:1.55;color:#F5FBF7">{{ item.typed }}</div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="join" style="position:relative;overflow:hidden;text-align:center;background:#050F0B;padding:clamp(140px,18vw,220px) clamp(20px,4vw,40px)">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(16,96,67,.16) 0%,transparent 68%)"></div>
+  <div data-layer="grain" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.035;background-image:url(uploads/grain.png);background-repeat:repeat;background-size:180px"></div>
+
+  <div data-reveal style="position:relative;max-width:680px;margin:0 auto">
+    <span style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:rgba(245,251,247,.45)">Early Access</span>
+    <h2 style="font-family:var(--anton);font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.08;text-transform:uppercase;letter-spacing:-.005em;margin:26px 0 0;color:#F5FBF7;text-wrap:balance">Your next game shouldn't start with three phone calls.</h2>
+    <p style="color:rgba(245,251,247,.6);font-size:clamp(15px,1.2vw,17px);line-height:1.7;max-width:46ch;margin:22px auto 0">Leave your email and be among the first players to experience a simpler way to discover, book and play. Launching first in Islamabad.</p>
+
+    <sc-if value="{{ ctaDone }}" hint-placeholder-val="{{ false }}">
+      <div data-cta-result style="margin:40px auto 0;max-width:420px;animation:fadeUpQuiet .5s cubic-bezier(.22,1,.36,1) both">
+        <div style="padding:17px 28px;border-radius:10px;background:linear-gradient(180deg,#34D498,#106043);color:#04301F;font-weight:700;font-size:16px">✓ You're in.</div>
+        <p style="color:rgba(245,251,247,.5);font-size:13px;margin:14px 0 0">We'll let you know when evenings get easier.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ ctaPending }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submitCta }}" style="display:flex;align-items:stretch;gap:10px;margin:40px auto 0;max-width:420px">
+        <input type="email" required placeholder="you@email.com" style="flex:1;min-width:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;outline:none;color:#F5FBF7;font-size:15px;padding:15px 18px" />
+        <button type="submit" style="padding:15px 26px;border-radius:8px;background:#34D498;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.18),0 6px 14px -6px rgba(0,0,0,.35);color:#04301F;font-weight:700;font-size:15px;white-space:nowrap;border:none;transition:filter .14s ease,transform .14s ease,box-shadow .14s ease" style-hover="filter:brightness(1.05);transform:translateY(-1px)" style-active="transform:translateY(0);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 1px rgba(0,0,0,.18)">Get Early Access</button>
+      </form>
+    </sc-if>
+
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:34px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,251,247,.35)">
+      <span>Launching first in Islamabad</span>
+      <span>Android First</span>
+      <span>No spam</span>
+      <span>Unsubscribe anytime</span>
+    </div>
+  </div>
+</section>
+
+<footer style="position:relative;background:#050F0B;border-top:1px solid rgba(255,255,255,.06);padding:clamp(96px,11vw,132px) clamp(20px,4vw,40px) clamp(32px,4vw,40px)">
+  <div data-reveal style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:24px">
+    <div>
+      <div style="font-family:var(--anton);font-size:26px;letter-spacing:.06em;color:#F5FBF7">TURF'D</div>
+      <p style="color:rgba(245,251,247,.32);font-size:13px;margin:10px 0 0">One Tap. Every Game.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 30px;font-size:13.5px">
+      <a href="#" style="color:rgba(245,251,247,.4);transition:color .14s ease" style-hover="color:#34D498">About</a>
+      <a href="#faq" style="color:rgba(245,251,247,.4);transition:color .14s ease" style-hover="color:#34D498">FAQ</a>
+      <a href="#" style="color:rgba(245,251,247,.4);transition:color .14s ease" style-hover="color:#34D498">Privacy</a>
+      <a href="#" style="color:rgba(245,251,247,.4);transition:color .14s ease" style-hover="color:#34D498">Terms</a>
+      <a href="mailto:hello@turfd.pk" style="color:rgba(245,251,247,.4);transition:color .14s ease" style-hover="color:#34D498">Contact</a>
+    </div>
+  </div>
+  <div data-phys-stage style="position:relative;max-width:1120px;margin:clamp(40px,6vw,60px) auto 0;height:clamp(260px,32vw,340px)" aria-hidden="true">
+    <img data-phys-item="fifa1" src="uploads/fifa-footer.png" alt="" style="position:absolute;top:0;left:0;width:98px;height:65.33px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="fifa2" src="uploads/fifa-footer.png" alt="" style="position:absolute;top:0;left:0;width:82px;height:54.67px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="fifa3" src="uploads/fifa-footer.png" alt="" style="position:absolute;top:0;left:0;width:70px;height:46.67px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="fifa4" src="uploads/fifa-footer.png" alt="" style="position:absolute;top:0;left:0;width:60px;height:40px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="fifa5" src="uploads/fifa-footer.png" alt="" style="position:absolute;top:0;left:0;width:52px;height:34.67px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="basketball" src="uploads/basket-footer.png" alt="" style="position:absolute;top:0;left:0;width:92px;height:61.33px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="basketball2" src="uploads/basket-footer.png" alt="" style="position:absolute;top:0;left:0;width:68px;height:45.33px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))" />
+    <img data-phys-item="cricketball1" src="uploads/cricket-ball-footer.png" alt="" style="position:absolute;top:0;left:0;width:48px;height:32px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="cricketball2" src="uploads/cricket-ball-footer.png" alt="" style="position:absolute;top:0;left:0;width:48px;height:32px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="cricketball3" src="uploads/cricket-ball-footer.png" alt="" style="position:absolute;top:0;left:0;width:40px;height:26.67px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="cricketball4" src="uploads/cricket-ball-footer.png" alt="" style="position:absolute;top:0;left:0;width:44px;height:29.33px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="cricketball5" src="uploads/cricket-ball-footer.png" alt="" style="position:absolute;top:0;left:0;width:36px;height:24px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="tennisball1" src="uploads/tennisball-footer.png" alt="" style="position:absolute;top:0;left:0;width:48px;height:32px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="tennisball2" src="uploads/tennisball-footer.png" alt="" style="position:absolute;top:0;left:0;width:48px;height:32px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="tennisball3" src="uploads/tennisball-footer.png" alt="" style="position:absolute;top:0;left:0;width:40px;height:26.67px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="tennisball4" src="uploads/tennisball-footer.png" alt="" style="position:absolute;top:0;left:0;width:36px;height:24px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+    <img data-phys-item="tennisball5" src="uploads/tennisball-footer.png" alt="" style="position:absolute;top:0;left:0;width:44px;height:29.33px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))" />
+  </div>
+
+  <div style="max-width:1120px;margin:clamp(28px,4vw,36px) auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:rgba(245,251,247,.25)">
+    <span>Launching first in Islamabad.</span>
+    <span>© Turf'd 2026</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  navRef = React.createRef();
+  discSecRef = React.createRef();
+  discTrackRef = React.createRef();
+  heroRef = React.createRef();
+  heroStageRef = React.createRef();
+  heroPhotoRef = React.createRef();
+  heroBloomRef = React.createRef();
+  heroFogRef = React.createRef();
+  heroDustRef = React.createRef();
+  heroContentRef = React.createRef();
+  tx=0; ty=0; cx=0; cy=0;
+  state = { drawer:false, track:'player', screen:0, faq:0, typed:'', typing:false, heroDone:false, ctaDone:false, videoOpen:false, isDesktop:true };
+
+  sports = [
+    {n:'01/05', name:'Futsal', tag:'5-a-side · indoor · floodlit', img:'uploads/futsal-court.jpeg', ball:'radial-gradient(circle at 34% 28%,#ffffff,#d5e6dd 58%,#9db2a6)'},
+    {n:'02/05', name:'Cricket', tag:'Nets · tape-ball · hardball', img:'uploads/cricket.jpeg', ball:'radial-gradient(circle at 34% 28%,#ff8877,#c0392b 55%,#7a1f16)'},
+    {n:'03/05', name:'Padel', tag:'Doubles · glass court · fast', img:'uploads/padel.jpeg', ball:'radial-gradient(circle at 34% 28%,#b6f5d8,#34D498 55%,#0f8f5f)'},
+    {n:'04/05', name:'Tennis', tag:'Singles · hard court · rallies', img:'uploads/tennis.jpeg', ball:'radial-gradient(circle at 34% 28%,#eaff8f,#c6e04a 55%,#8fae2e)'},
+    {n:'05/05', name:'5-a-side', tag:'Squad football · turf · nights', img:'uploads/5a-side.jpeg', ball:'radial-gradient(circle at 34% 28%,#ffffff,#d5e6dd 58%,#9db2a6)'}
+  ];
+
+  steps = {
+    player:[
+      {title:'Find a Court', body:'Live map of every open turf near you — filtered by sport, price, and vibe.'},
+      {title:'Slot Lock', body:'Tap once. The slot is atomically yours for 60 seconds while you pay.'},
+      {title:'Play & Enjoy', body:'Show up, scan in, run the game. Split the bill with your squad in-app.'}
+    ],
+    owner:[
+      {title:'List in Minutes', body:'Snap photos, set prices, done. No spreadsheets, no back-and-forth calls.'},
+      {title:'Automate Slots', body:'Dynamic pricing + auto-distribution. Empty slots get filled while you sleep.'},
+      {title:'Track Revenue', body:'EasyPaisa & JazzCash settle instantly. Live cash-flow, one clean screen.'}
+    ]
+  };
+  faq = [
+    {q:'Yaar, when do you actually launch?', a:"We're booting up in Islamabad in Q4 2026, with Lahore and Karachi rolling out weeks later. Waitlist members get 3 days of early access before the public open."},
+    {q:'Which cities are you starting with?', a:"Islamabad first — full coverage of F-sectors, Bahria and DHA. Lahore + Karachi close behind. Drop your city when you join and we'll prioritise onboarding there."},
+    {q:'Is it free to join the waitlist?', a:"100% free. Waitlist members get founder pricing (locked forever), zero booking fees for the first 3 months, and a private community channel."},
+    {q:'How do mobile wallet payments actually work?', a:"One tap. Pick EasyPaisa or JazzCash at checkout, confirm on your wallet, done. Owners are settled instantly — no 5-day bank clearing, no ledger hassle."}
+  ];
+
+  componentDidMount(){
+    // In-page anchor links (nav, footer) must route through Lenis, not the browser's native jump —
+    // a native jump desyncs Lenis's internal scroll target from real scrollY, and once a pinned
+    // section (adding real pin-spacing height) is in the mix that desync can strand the viewport
+    // far past the intended target.
+    this._onAnchorClick=(e)=>{
+      const a=e.target.closest('a[href^="#"]'); if(!a) return;
+      const id=a.getAttribute('href').slice(1); const target=id&&document.getElementById(id);
+      if(!target) return;
+      e.preventDefault();
+      const lenis=window.__turfdLenis;
+      if(lenis&&lenis.scrollTo) lenis.scrollTo(target,{offset:-90});
+      else target.scrollIntoView({behavior: this.reduce?'auto':'smooth', block:'start'});
+    };
+    document.addEventListener('click', this._onAnchorClick);
+    this.reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    this.lite = ((navigator.hardwareConcurrency||8)<=4) || ((navigator.deviceMemory||8)<=4);
+    if(this.lite && !this.reduce){
+      ['particles','rays','fog-fg','fog-bg'].forEach(k=>{ const el=document.querySelector('[data-cam="'+k+'"]'); if(el) el.style.display='none'; });
+      const g=document.querySelector('[data-layer="grain"]'); if(g) g.style.display='none';
+      const lv=document.querySelector('[data-layer="leaves"] img'); if(lv) lv.style.animation='none';
+    }
+    this.startType(this.faq[0].a);
+    if(!this.reduce && !this.lite){
+      this.mouse = {tx:0,ty:0,cx:0,cy:0};
+      this.pLayers = [
+        ['[data-layer="particles"]',24,''],
+        ['[data-layer="rays"]',18,'scaleX(-1) '],
+        ['[data-layer="fog-fg"]',15,'scaleX(-1) '],
+        ['[data-layer="fog-bg"]',15,''],
+        ['[data-layer="pitch"]',8,'']
+      ].map(([sel,f,base])=>({el:document.querySelector(sel),f,base})).filter(o=>o.el);
+      this.onMove = (e)=>{ this.mouse.tx=(e.clientX/window.innerWidth-.5)*2; this.mouse.ty=(e.clientY/window.innerHeight-.5)*2; this.wake(); };
+      this.onLeave = ()=>{ this.mouse.tx=0; this.mouse.ty=0; this.wake(); };
+      window.addEventListener('mousemove', this.onMove, {passive:true});
+      window.addEventListener('mouseleave', this.onLeave, {passive:true});
+    }
+    this.mq = matchMedia('(min-width:768px)');
+    this.onResize = ()=>{ this.setState({isDesktop:this.mq.matches}); if(!this.reduce){ this.measure(); this.wake(); } };
+    this.setState({isDesktop:this.mq.matches});
+    window.addEventListener('resize', this.onResize);
+    this.initReveals();
+    this.initRecognition();
+    this.initCity();
+    this.initLiveTimeline();
+    this.initEmptyHours();
+    this.initOwnerBeat();
+    this.initNetworkChain();
+    this.initArrivalBeat();
+    this.initAnimationGating();
+    // Retire the intro veil after its one-shot open so it stops being a composited full-screen layer
+    const veil=document.querySelector('[data-layer="intro-veil"]');
+    if(veil){ if(this.reduce){ veil.style.display='none'; } else { veil.addEventListener('animationend', ()=>{ veil.style.display='none'; }, {once:true}); } }
+    this.initScrollFX();
+    this.initCinematic();
+    this.initFooterPhysics();
+  }
+  initFooterPhysics(){
+    const stage=document.querySelector('[data-phys-stage]');
+    if(!stage) return;
+    const items=[...stage.querySelectorAll('[data-phys-item]')];
+    if(!items.length) return;
+    // dimensions + physical profile per object — must match each <img>'s actual CSS width/height
+    // shape: 'circle' rolls freely; 'rect' tumbles/rotates. offset: fraction of half-extent the cursor force applies at (0 = center push, near 1 = mostly torque)
+    const profiles={
+      fifa1:       {w:98, h:65.33, shape:'circle', density:0.0016, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      fifa2:       {w:82, h:54.67, shape:'circle', density:0.0016, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      fifa3:       {w:70, h:46.67, shape:'circle', density:0.0016, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      fifa4:       {w:60, h:40,    shape:'circle', density:0.0016, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      fifa5:       {w:52, h:34.67, shape:'circle', density:0.0016, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      basketball:  {w:92, h:61.33, shape:'circle', density:0.0017, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      basketball2: {w:68, h:45.33, shape:'circle', density:0.0017, friction:0.35, frictionAir:0.028, restitution:0.05, offset:0.15},
+      cricketball1:{w:48, h:32,    shape:'circle', density:0.0024, friction:0.3,  frictionAir:0.03,  restitution:0.04, offset:0.15},
+      cricketball2:{w:48, h:32,    shape:'circle', density:0.0024, friction:0.3,  frictionAir:0.03,  restitution:0.04, offset:0.15},
+      cricketball3:{w:40, h:26.67, shape:'circle', density:0.0024, friction:0.3,  frictionAir:0.03,  restitution:0.04, offset:0.15},
+      cricketball4:{w:44, h:29.33, shape:'circle', density:0.0024, friction:0.3,  frictionAir:0.03,  restitution:0.04, offset:0.15},
+      cricketball5:{w:36, h:24,    shape:'circle', density:0.0024, friction:0.3,  frictionAir:0.03,  restitution:0.04, offset:0.15},
+      tennisball1: {w:48, h:32,    shape:'circle', density:0.001,  friction:0.4,  frictionAir:0.022, restitution:0.06, offset:0.15},
+      tennisball2: {w:48, h:32,    shape:'circle', density:0.001,  friction:0.4,  frictionAir:0.022, restitution:0.06, offset:0.15},
+      tennisball3: {w:40, h:26.67, shape:'circle', density:0.001,  friction:0.4,  frictionAir:0.022, restitution:0.06, offset:0.15},
+      tennisball4: {w:36, h:24,    shape:'circle', density:0.001,  friction:0.4,  frictionAir:0.022, restitution:0.06, offset:0.15},
+      tennisball5: {w:44, h:29.33, shape:'circle', density:0.001,  friction:0.4,  frictionAir:0.022, restitution:0.06, offset:0.15}
+    };
+    if(this.reduce){
+      const w=stage.clientWidth||900, cols=Math.max(1,Math.floor(w/130)), gap=14;
+      items.forEach((el,i)=>{
+        const p=profiles[el.getAttribute('data-phys-item')]||{w:60,h:40};
+        const col=i%cols, row=Math.floor(i/cols);
+        el.style.transform='translate('+(col*(w/cols)+8)+'px,'+(row*(p.h+gap)+8)+'px)';
+      });
+      return;
+    }
+    const start=()=>{
+      const M=window.Matter;
+      if(!M){ this._physWait=setTimeout(start,60); return; }
+      const {Engine,World,Bodies,Body,Events}=M;
+      const engine=Engine.create(); engine.gravity.y=0.55;
+      const world=engine.world;
+      const w=stage.clientWidth||900, h=stage.clientHeight||240;
+      const wallOpts={isStatic:true,restitution:0.04,friction:0.7};
+      const thick=60;
+      const walls=[
+        Bodies.rectangle(w/2,-thick/2,w+thick*2,thick,wallOpts),
+        Bodies.rectangle(w/2,h+thick/2,w+thick*2,thick,wallOpts),
+        Bodies.rectangle(-thick/2,h/2,thick,h+thick*2,wallOpts),
+        Bodies.rectangle(w+thick/2,h/2,thick,h+thick*2,wallOpts)
+      ];
+      const bodies=[];
+      items.forEach((el,i)=>{
+        const key=el.getAttribute('data-phys-item');
+        const p=profiles[key]; if(!p) return;
+        const x=20+Math.random()*Math.max(40,w-40);
+        const y=4+Math.random()*40;
+        const opts={restitution:p.restitution,friction:p.friction,frictionAir:p.frictionAir,density:p.density,angle:(Math.random()*2-1)*Math.PI};
+        let b;
+        if(p.shape==='circle'){ b=Bodies.circle(x,y,Math.min(p.w,p.h)*0.42,opts); }
+        else { b=Bodies.rectangle(x,y,p.w*0.82,p.h*0.42,{...opts,chamfer:{radius:6}}); }
+        b._el=el; b._w=p.w; b._h=p.h; b._forceScale=p.forceScale||1;
+        // offset toward one extreme (per profile) so cursor force induces rotation/torque proportional to how "long" the object is
+        const dir=Math.random()<0.5?1:-1;
+        b._offx=dir*p.offset*p.w*0.4; b._offy=dir*p.offset*p.h*0.15;
+        Body.setVelocity(b,{x:(Math.random()*2-1)*1.4, y:Math.random()*0.6});
+        Body.setAngularVelocity(b,(Math.random()*2-1)*0.05);
+        bodies.push(b);
+      });
+      World.add(world,[...walls,...bodies]);
+      let mouse=null;
+      const onMove=(e)=>{ const rect=stage.getBoundingClientRect(); mouse={x:e.clientX-rect.left,y:e.clientY-rect.top}; };
+      const onLeave=()=>{ mouse=null; };
+      stage.addEventListener('pointermove',onMove);
+      stage.addEventListener('pointerleave',onLeave);
+      const radius=170;
+      const beforeUpdate=()=>{
+        bodies.forEach(b=>{
+          // faint idle drift so the pile never fully freezes — random, not a set pattern, and small enough to stay realistic
+          if(Math.random()<0.012){
+            Body.applyForce(b,b.position,{x:(Math.random()*2-1)*0.00035*b._forceScale,y:-Math.random()*0.00015*b._forceScale});
+          }
+          if(!mouse) return;
+          const dx=b.position.x-mouse.x, dy=b.position.y-mouse.y;
+          const dist=Math.sqrt(dx*dx+dy*dy)||0.001;
+          if(dist<radius){
+            // strong, direction-agnostic scatter: full push directly away from the cursor along (dx,dy) —
+            // enough to overcome gravity briefly so objects can scatter up/sideways/away, not just slide along the floor
+            const k=1-dist/radius; const f=k*k*0.0075*b._forceScale;
+            const px=b.position.x+b._offx, py=b.position.y+b._offy;
+            Body.applyForce(b,{x:px,y:py},{x:(dx/dist)*f,y:(dy/dist)*f});
+          }
+        });
+      };
+      Events.on(engine,'beforeUpdate',beforeUpdate);
+      // Drive visibility off the stage's own rect each frame rather than an IntersectionObserver — IO delivery
+      // rides on the paint/compositor pipeline and can silently never fire in some render contexts, which would
+      // leave the whole sim inert. A rect check inside the loop can't get stuck that way.
+      let looping=true, running=false;
+      this._physStopLoop=()=>{ looping=false; };
+      const loop=()=>{
+        if(!looping) return;
+        const r=stage.getBoundingClientRect();
+        running = r.bottom>0 && r.top<window.innerHeight;
+        if(running){
+          Engine.update(engine,1000/60);
+          bodies.forEach(b=>{ b._el.style.transform='translate('+(b.position.x-b._w/2)+'px,'+(b.position.y-b._h/2)+'px) rotate('+b.angle+'rad)'; });
+        }
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+      this._physCleanup=()=>{
+        stage.removeEventListener('pointermove',onMove); stage.removeEventListener('pointerleave',onLeave);
+        Events.off(engine,'beforeUpdate',beforeUpdate);
+        if(this._physStopLoop) this._physStopLoop();
+        World.clear(world); Engine.clear(engine);
+      };
+    };
+    start();
+  }
+  initCinematic(){
+    if(this.reduce) return;
+    if(this._cineInit) return;            // build exactly once per instance
+    this._cineInit=true;
+    const ready=()=> window.gsap && window.ScrollTrigger && window.Lenis;
+    const start=()=>{
+      const {gsap, ScrollTrigger, Lenis}=window;
+      gsap.registerPlugin(ScrollTrigger);
+      document.documentElement.style.scrollBehavior='auto';
+      // one shared, persistent Lenis + ticker across mounts (no racing teardown)
+      if(this.lite){ document.documentElement.style.scrollBehavior='auto'; }
+      else if(!window.__turfdLenis){
+        const lenis=new Lenis({lerp:0.14, smoothWheel:true});
+        lenis.on('scroll', ScrollTrigger.update);
+        const ticker=(t)=>lenis.raf(t*1000);
+        gsap.ticker.add(ticker); gsap.ticker.lagSmoothing(0);
+        window.__turfdLenis=lenis; window.__turfdTicker=ticker;
+      }
+      this.lenis=this.lite?null:window.__turfdLenis;
+      // Single frame source: the scroll/parallax FX rides this shared Lenis scroll + ticker (no second rAF)
+      if(this._fx && this.lenis && !this._onLenisScroll){ this._onLenisScroll=()=>this.wake(); this.lenis.on('scroll', this._onLenisScroll); }
+      if(this.lite && !this._onWinScroll){ this._onWinScroll=()=>this.wake(); window.addEventListener('scroll', this._onWinScroll, {passive:true}); }
+      // Re-cache measurements only on ScrollTrigger refresh (fires on resize, load, layout changes)
+      if(!this._onSTRefresh){ this._onSTRefresh=()=>this.measure(); ScrollTrigger.addEventListener('refresh', this._onSTRefresh); }
+      this.measure(); this.wake();
+      const q=(s)=>document.querySelector(s);
+      const qa=(s)=>[...document.querySelectorAll(s)];
+      const track=q('[data-hero-track]');
+      // Each layer dollies on its own promoted texture — no shared parent to re-rasterize.
+      const dolly=qa(this.lite?'[data-cam="pitch"],[data-layer="vignette"]':'[data-cam="pitch"],[data-cam="fog-bg"],[data-cam="rays"],[data-cam="fog-fg"],[data-cam="particles"],[data-layer="mist"],[data-layer="vignette"]');
+      const fogBg=q('[data-layer="fog-bg"]'), fogFg=q('[data-layer="fog-fg"]'),
+        vignette=q('[data-layer="vignette"]'), mist=q('[data-layer="mist"]'),
+        pitchGlow=q('[data-pitch-glow]'), pitchOv=q('[data-pitch-scrim]'),
+        leaves=q('[data-layer="leaves"]'), content=q('[data-layer="content"]'),
+        cue=q('[data-layer="scroll-cue"]');
+      if(!track||!dolly.length) return;
+      // kill only a stale hero-track timeline from a previous mount, then build exactly one
+      if(window.__turfdTL){ try{ window.__turfdTL.scrollTrigger && window.__turfdTL.scrollTrigger.kill(); window.__turfdTL.kill(); }catch(e){} }
+      // Sticky CSS holds the hero; ScrollTrigger only scrubs (no DOM-mutating pin → React-safe)
+      // One continuous camera move: standing outside → walking in → arriving on the field.
+      const tl=gsap.timeline({defaults:{ease:'none'}, scrollTrigger:{trigger:track, start:'top top', end:'bottom bottom', scrub:this.lite?0.35:0.8}});
+      // steady forward dolly + slight upward tilt — same focal point, applied per layer (not to a parent)
+      tl.to(dolly,{scale:1.34, yPercent:-6, transformOrigin:'50% 62%', duration:1},0);
+      // the night opens up around you as you enter
+      tl.to(vignette,{opacity:0, duration:1},0);
+      tl.to(mist,{opacity:0.55, duration:0.92},0.04);
+      // fog parts as you move through it
+      tl.to(fogBg,{opacity:0.05, duration:0.9},0.05);
+      tl.to(fogFg,{opacity:0.03, duration:0.7},0);
+      // the field fills the frame and catches the light
+      if(pitchOv) tl.to(pitchOv,{opacity:0, duration:0.85},0.1);
+      // "catches the light" via a compositor-cheap opacity fade (no filter on the animated image)
+      if(pitchGlow) tl.to(pitchGlow,{opacity:1, duration:1},0);
+      // the canopy dollies with the scene, then lifts faster (near-depth parallax)
+      if(leaves){ tl.to(leaves,{scale:1.34, transformOrigin:'50% 62%', duration:1},0); tl.to(leaves,{yPercent:-22, opacity:0, duration:0.6},0); }
+      // your gaze lifts from the copy toward the pitch — motion-motivated, not a big fade
+      tl.to(content,{yPercent:-12, autoAlpha:0, duration:0.5},0.06);
+      if(cue) tl.to(cue,{autoAlpha:0, duration:0.12},0);
+      window.__turfdTL=tl; this._cineST=tl.scrollTrigger;
+      requestAnimationFrame(()=>ScrollTrigger.refresh());
+    };
+    if(ready()) start();
+    else { let n=0; this._libTimer=setInterval(()=>{ if(ready()){ clearInterval(this._libTimer); start(); } else if(++n>200){ clearInterval(this._libTimer); } }, 50); }
+  }
+  initReveals(){
+    if(this.reduce) return;
+    const els=[...document.querySelectorAll('[data-reveal]')];
+    els.forEach(el=>{ el.style.opacity='0'; el.style.transform='translateY(44px)'; el.style.transition='opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1)'; });
+    this.io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ const el=e.target; el.style.opacity='1'; el.style.transform='none'; this.io.unobserve(el); } });
+    },{ threshold:0.1, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(el=>this.io.observe(el));
+    // Pause hero ambient animations (blend-mode layers) when the hero is off-screen
+    const heroEl=document.querySelector('#hero');
+    if(heroEl){
+      heroEl.style.setProperty('--wc','transform');  // promoted while hero is on-screen (the scrub range)
+      this.heroIO=new IntersectionObserver((ents)=>{
+        ents.forEach(e=>{ heroEl.style.setProperty('--amb', e.isIntersecting?'running':'paused'); heroEl.style.setProperty('--wc', e.isIntersecting?'transform':'auto'); });
+      },{ threshold:0 });
+      this.heroIO.observe(heroEl);
+    }
+    // Disciplines track is GPU-promoted only while its section is on-screen
+    const discSec=this.discSecRef.current;
+    if(discSec){
+      this.discIO=new IntersectionObserver((ents)=>{
+        ents.forEach(e=>{ discSec.style.setProperty('--dwc', e.isIntersecting?'transform':'auto'); });
+      },{ threshold:0 });
+      this.discIO.observe(discSec);
+    }
+  }
+  initRecognition(){
+    const sec=document.querySelector('[data-recog]');
+    if(!sec) return;
+    const msgs=[...sec.querySelectorAll('[data-recog-msg]')];
+    const convo=sec.querySelector('[data-recog-convo]');
+    const content=sec.querySelector('[data-recog-content]');
+    const line=sec.querySelector('[data-recog-line]');
+    const trigger=sec.querySelector('[data-recog-trigger]');
+    const setLine=(on)=>{ if(!line) return; line.style.opacity=on?'1':'0'; line.style.transform=on?'none':'translateY(20px) scale(.985)'; };
+    const setDim=(on)=>{ if(content) content.style.opacity=on?'.18':'1'; };
+    const setDimT=(t)=>{ if(content){ content.style.opacity=String(1-0.92*t); content.style.filter='blur('+(t*3)+'px)'; } };
+    if(this.reduce){
+      msgs.forEach(m=>{ m.style.opacity='1'; m.style.transform='none'; });
+      if(line){ line.style.opacity='0'; }
+      // still reveal the bridge on scroll, just without motion
+      this.recogLineIO=new IntersectionObserver((ents)=>{ ents.forEach(e=>{ setDimT(e.isIntersecting?1:0); if(line) line.style.opacity=e.isIntersecting?'1':'0'; }); },{ threshold:0.12 });
+      if(trigger) this.recogLineIO.observe(trigger);
+      return;
+    }
+    // No CSS transitions on these — opacity/transform are set directly from scroll position every frame,
+    // so each message's appearance tracks the scrollbar itself rather than playing out over a fixed duration.
+    msgs.forEach(m=>{ m.style.transition='none'; m.style.opacity='0'; m.style.transform='translateY(8px)'; });
+    if(line){ line.style.transition='none'; setLine(false); }
+    if(!trigger){ return; }
+    const clamp01=v=>v<0?0:v>1?1:v;
+    // Each message gets its own slice of the trigger's scroll travel; within that slice opacity/transform
+    // interpolate linearly with scroll position, so scrubbing up or down moves them in lockstep with the scrollbar.
+    const fadeWidth=0.16;
+    const reveal=(m,t)=>{ m.style.opacity=String(t); m.style.transform='translateY('+(8*(1-t))+'px)'; };
+    // p tracks the pin's own scroll budget directly (section top's negative travel over the trigger's height) —
+    // deriving it from the trigger element's own rect broke whenever the sticky stage was taller than one
+    // viewport, since most of the pin scroll was then spent just bringing the trigger's static top to 0.
+    const compute=()=>{
+      const secR=sec.getBoundingClientRect();
+      const span=Math.max(1, trigger.offsetHeight);
+      const p=Math.min(1,Math.max(0, -secR.top/span));
+      msgs.forEach((m,i)=>{
+        // window ends exactly at the old threshold so each message is fully in by the point it used to snap in,
+        // and starts fading in fadeWidth earlier — message 0's window starts below 0 so it's visible right away
+        const end=(i/msgs.length)*0.46;
+        const start=end-fadeWidth;
+        const t=clamp01((p-start)/fadeWidth);
+        reveal(m,t);
+      });
+      const lineT=clamp01((p-0.56)/0.2);
+      setDimT(lineT);
+      if(line){ line.style.opacity=String(lineT); line.style.transform=lineT>=1?'none':'translateY('+(20*(1-lineT))+'px) scale('+(0.985+0.015*lineT)+')'; }
+    };
+    // Continuous rAF loop rather than an event subscription — a scroll/lenis 'scroll' event can be missed,
+    // coalesced, or stop firing across mounts; polling the DOM position every frame can't get stuck.
+    let looping=true;
+    this._recogStopLoop=()=>{ looping=false; };
+    const loop=()=>{ if(!looping) return; compute(); requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
+    window.addEventListener('resize', compute);
+    compute();
+  }
+  initLiveTimeline(){
+    const track=document.querySelector('[data-timeline-track]');
+    const stage=document.querySelector('[data-timeline-stage]');
+    if(!track||!stage) return;
+    const rows=[...stage.querySelectorAll('[data-tl-row]')];
+    const liveIndicator=stage.querySelector('[data-tl-live-indicator]');
+    const liveTs=stage.querySelector('[data-tl-live-ts]');
+    if(this.reduce){
+      rows.forEach(row=>{ row.querySelector('[data-tl-time]').style.opacity='1'; row.querySelector('[data-tl-status]').style.opacity='1'; });
+      if(liveIndicator) liveIndicator.style.opacity='1';
+      return;
+    }
+    const build=()=>{
+    const {gsap,ScrollTrigger}=window;
+    gsap.registerPlugin(ScrollTrigger);
+    const rowRefs=rows.map(row=>({row, time:row.querySelector('[data-tl-time]'), status:row.querySelector('[data-tl-status]'), live:row.dataset.tlLive==='true'}));
+    rowRefs.forEach(({time,status})=>{
+      gsap.set(time,{opacity:0,y:8}); gsap.set(status,{opacity:0,y:8});
+      time.dataset.shown='0'; status.dataset.shown='0'; status.dataset.cur=status.textContent;
+    });
+    if(liveIndicator){ gsap.set(liveIndicator,{opacity:0,y:8}); liveIndicator.dataset.shown='0'; }
+    if(liveTs) liveTs.dataset.cur=liveTs.textContent;
+    const reveal=(el,show)=>{
+      const shown=el.dataset.shown==='1';
+      if(show===shown) return;
+      el.dataset.shown=show?'1':'0';
+      gsap.to(el,{opacity:show?1:0, y:show?0:8, duration:0.4, ease:'power2.out', overwrite:true});
+    };
+    const swapStatus=(el,text,color)=>{
+      if(el.dataset.cur===text) return;
+      el.dataset.cur=text;
+      gsap.to(el,{opacity:0,y:-6,duration:0.12,ease:'power1.in',overwrite:true,onComplete:()=>{
+        el.textContent=text; el.style.color=color;
+        gsap.fromTo(el,{opacity:0,y:6},{opacity:1,y:0,duration:0.35,ease:'power2.out'});
+      }});
+    };
+    const liveRow=rowRefs.find(r=>r.live);
+    const otherRowEls=rowRefs.filter(r=>!r.live).map(r=>r.row);
+    const trySettle=(p)=>{
+      if(p>=0.90){
+        if(this._settleTriggered) return;
+        this._settleTriggered=true;
+        clearTimeout(this._settleTimeout);
+        this._settleTimeout=setTimeout(()=>{
+          if(this._settleTriggered) gsap.to(otherRowEls,{opacity:0.32,duration:0.6,ease:'power2.out',overwrite:true});
+        },950); // ~0.47s status swap settles, then a ~0.5s pause before the timeline dims
+      } else if(this._settleTriggered){
+        this._settleTriggered=false;
+        clearTimeout(this._settleTimeout);
+        gsap.to(otherRowEls,{opacity:1,duration:0.4,ease:'power2.out',overwrite:true});
+      }
+    };
+    const applyProgress=(p)=>{
+        if(liveIndicator) reveal(liveIndicator, p>=0.02);
+        if(liveTs){ if(p>=0.5) swapStatus(liveTs,'Updated moments ago','rgba(245,251,247,.45)'); }
+        trySettle(p);
+        rowRefs.forEach(({time,status,live},i)=>{
+          reveal(time, p>=0.02+i*0.015);
+          if(live){
+            if(p<0.27){ reveal(status,false); }
+            else if(p<0.52){ reveal(status,true); swapStatus(status,'Available','#34D498'); }
+            else if(p<0.60){ reveal(status,true); swapStatus(status,'Held','#D9A24B'); }
+            else if(p<0.90){ reveal(status,true); swapStatus(status,'Booked','rgba(245,251,247,.45)'); }
+            else { reveal(status,true); swapStatus(status,'Confirmed','#34D498'); }
+          } else if(i===4){
+            reveal(status, p>=0.74);
+          } else {
+            reveal(status, p>=0.22+i*0.05);
+          }
+        });
+    };
+    if(window.__turfdTimelineTL){ try{ window.__turfdTimelineTL.kill(); }catch(e){} }
+    window.__turfdTimelineTL={kill:()=>{}};
+    // Single scroll source computed directly from the DOM — avoids depending on this page's shared
+    // GSAP ScrollTrigger registry, which other sections' mount/unmount cycles can clear unpredictably.
+    let raf=0;
+    const manualCompute=()=>{
+      const r=track.getBoundingClientRect(); const vh=window.innerHeight;
+      const span=Math.max(1, r.height - vh);
+      applyProgress(Math.min(1,Math.max(0, -r.top/span)));
+    };
+    const onScroll=()=>{ if(raf) return; raf=requestAnimationFrame(()=>{ raf=0; manualCompute(); }); };
+    this._tlOnScroll=onScroll;
+    if(window.__turfdLenis && window.__turfdLenis.on){ window.__turfdLenis.on('scroll', onScroll); }
+    else { window.addEventListener('scroll', onScroll, {passive:true}); }
+    window.addEventListener('resize', onScroll);
+    manualCompute();
+    };
+    const wait=()=>{
+      if(this._tlDestroyed) return;
+      if(window.gsap&&window.ScrollTrigger){ build(); } else { this._timelineWait=setTimeout(wait,60); }
+    };
+    wait();
+  }
+  initCity(){
+    const stage=document.querySelector('[data-film-stage]');
+    const track=document.querySelector('[data-film-track]');
+    if(!stage||!track) return;
+    const map=stage.querySelector('[data-film-map]');
+    const aerial=stage.querySelector('[data-film-aerial]');
+    const atmo=stage.querySelector('[data-film-atmo]');
+    const cam=stage.querySelector('[data-film-cam]');
+    const venuesBox=stage.querySelector('[data-film-venues]');
+    // ---- venue field (clustered, nothing repeats visibly); static once shown, brightened only on legend hover ----
+    let s=987654321; const rng=()=>{ s=(s*1664525+1013904223)%4294967296; return s/4294967296; };
+    const rr=(a,b)=>a+(b-a)*rng();
+    const pickCat=()=>{ const r=rng(); return r<0.60?'W':r<0.80?'G':r<0.90?'A':'B'; };
+    const districts=[[0.30,0.63,0.10,3],[0.51,0.55,0.075,3],[0.44,0.42,0.11,2],[0.67,0.50,0.085,2],[0.61,0.73,0.10,2],[0.20,0.40,0.10,1],[0.79,0.36,0.07,1],[0.85,0.63,0.06,1]];
+    const wsum=districts.reduce((a,d)=>a+d[3],0);
+    const gauss=()=>{ let u=0,v=0; while(u===0)u=rng(); while(v===0)v=rng(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+    const TOTAL=64; const els=[];
+    for(let i=0;i<TOTAL;i++){
+      let x,y;
+      if(i<TOTAL-8){ let t=rng()*wsum, d; for(d of districts){ t-=d[3]; if(t<=0) break; } x=d[0]+gauss()*d[2]; y=d[1]+gauss()*d[2]*0.8; }
+      else { x=rr(0.08,0.92); y=rr(0.24,0.9); }
+      x=Math.min(0.95,Math.max(0.05,x)); y=Math.min(0.92,Math.max(0.2,y));
+      const cat=pickCat(); const file=cat.toLowerCase()+(1+Math.floor(rng()*3));
+      const w=rr(4.2,9.8), op=rr(0.4,0.82), rot=rr(-12,12), br=rr(0.78,1.2), z=Math.round(y*100);
+      const wrap=document.createElement('div');
+      wrap.style.cssText='position:absolute;left:'+(x*100).toFixed(2)+'%;top:'+(y*100).toFixed(2)+'%;width:'+w.toFixed(2)+'vmin;transform:translate(-50%,-50%);mix-blend-mode:screen;z-index:'+z+';pointer-events:none';
+      const im=document.createElement('img');
+      im.src='uploads/venues/'+file+'.png'; im.alt=''; im.decoding='async';
+      im.style.cssText='display:block;width:100%;transform:rotate('+rot.toFixed(1)+'deg);filter:brightness('+br.toFixed(2)+');opacity:'+op.toFixed(3)+';transition:filter .6s ease,opacity .6s ease';
+      im.dataset.cat=cat; im._op=op; im._br=br;
+      wrap.appendChild(im); venuesBox.appendChild(im.__wrap=wrap); els.push(im);
+    }
+    // legend hover softly brightens matching venues; nothing else changes
+    const legend=stage.querySelector('[data-film-legend]');
+    if(legend){ legend.querySelectorAll('[data-cat]').forEach(it=>{
+      const c=it.dataset.cat;
+      it.addEventListener('mouseenter',()=>{ els.forEach(e=>{ if(e.dataset.cat===c){ e.style.filter='brightness('+(e._br*1.75).toFixed(2)+')'; e.style.opacity=Math.min(1,e._op*1.45).toFixed(3); } }); });
+      it.addEventListener('mouseleave',()=>{ els.forEach(e=>{ if(e.dataset.cat===c){ e.style.filter='brightness('+e._br.toFixed(2)+')'; e.style.opacity=e._op.toFixed(3); } }); });
+    }); }
+    if(this.reduce){ map.style.opacity='1'; aerial.style.opacity='1'; atmo.style.opacity='.28'; if(venuesBox) venuesBox.style.opacity='1'; return; }
+    const build=()=>{
+      const {gsap,ScrollTrigger}=window;
+      if(window.__turfdCityTL){ try{ window.__turfdCityTL.scrollTrigger&&window.__turfdCityTL.scrollTrigger.kill(); window.__turfdCityTL.kill(); }catch(e){} }
+      gsap.set(map,{opacity:0}); gsap.set(aerial,{opacity:0}); gsap.set(atmo,{opacity:0});
+      gsap.set(cam,{y:0,scale:1,transformOrigin:'50% 55%'});
+      // one continuous scrubbed film: plan surfaces → aerial reveals over it → atmosphere settles; camera drifts once, heavily
+      const tl=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:track,start:'top top',end:'bottom bottom',scrub:1}});
+      tl.to(map,{opacity:1,duration:0.3},0);                 // scene 1 · slow surface
+      tl.to(atmo,{opacity:0.3,duration:0.3},0.18);           // scene 3 · imperceptible depth, held
+      tl.to(aerial,{opacity:1,duration:0.36},0.42);          // scene 2 · aligned crossfade, opacity only
+      tl.to(cam,{y:15,scale:1.02,duration:1},0);             // heavy camera, entire scroll
+      window.__turfdCityTL=tl;
+      requestAnimationFrame(()=>ScrollTrigger.refresh());
+    };
+    const wait=()=>{ if(window.gsap&&window.ScrollTrigger&&window.gsap.registerPlugin){ window.gsap.registerPlugin(window.ScrollTrigger); build(); } else setTimeout(wait,60); };
+    wait();
+  }
+  initAnimationGating(){
+    if(this.reduce) return;
+    // The hero manages its own ambient layers (--amb). These sections run unmanaged, continuous
+    // loops (footer gradient-text hueShift, #why-turf-d orbit rings, #join badge/sheen) that keep the
+    // compositor busy even off-screen. Pause each section's animations via WAAPI when it leaves the viewport.
+    const groups=[...document.querySelectorAll('#why-turf-d, #join, footer')];
+    if(!groups.length) return;
+    this.animIO=new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{
+        let anims=[]; try{ anims=e.target.getAnimations({subtree:true}); }catch(_){ return; }
+        anims.forEach(a=>{ try{ e.isIntersecting?a.play():a.pause(); }catch(_){} });
+      });
+    },{ rootMargin:'160px 0px' });
+    groups.forEach(g=>this.animIO.observe(g));
+  }
+  initTicketShader(){
+    // Always-looping tinted liquid shader (WebGL) behind each ticket's content: a continuous colorful
+    // drift through the card's own palette, gated by viewport + reduced-motion. Hover adds a
+    // pointer-following warp that lightens the tone under the cursor, with inertia + slow ease-out.
+    if(this.reduce) return;
+    const cards=[...document.querySelectorAll('[data-ticket][data-colors]')];
+    if(!cards.length || typeof IntersectionObserver==='undefined') return;
+    // Idempotent: a hot-reload can re-run this init on already-wired cards — strip any stale canvas first
+    cards.forEach(card=>card.querySelectorAll(':scope > canvas').forEach(c=>c.remove()));
+    if(this._ticketShaderIO) this._ticketShaderIO.disconnect();
+    if(this._ticketShaderRaf){ cancelAnimationFrame(this._ticketShaderRaf); this._ticketShaderRaf=null; }
+    const hexToRgb=h=>{const n=parseInt(h.replace('#',''),16);return [n>>16&255,n>>8&255,n&255].map(v=>v/255);};
+    const VERT=`attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`;
+    const FRAG=`precision highp float;
+      uniform vec2 uRes; uniform vec2 uMouse; uniform vec2 uVel; uniform float uIntensity; uniform float uTime;
+      uniform vec3 uC0; uniform vec3 uC1; uniform vec3 uC2; uniform float uSeed;
+      float hash(vec2 p){ p=fract(p*vec2(123.34,456.21)); p+=dot(p,p+45.32); return fract(p.x*p.y); }
+      float noise(vec2 p){ vec2 i=floor(p),f=fract(p); float a=hash(i),b=hash(i+vec2(1.,0.)),c=hash(i+vec2(0.,1.)),d=hash(i+vec2(1.,1.)); vec2 u=f*f*(3.-2.*f); return mix(mix(a,b,u.x),mix(c,d,u.x),u.y); }
+      float fbm(vec2 p){ float v=0.,a=0.5; for(int i=0;i<4;i++){ v+=a*noise(p); p*=2.02; a*=0.5; } return v; }
+      void main(){
+        vec2 uv=gl_FragCoord.xy/uRes;
+        vec2 aspect=vec2(uRes.x/uRes.y,1.0);
+        float phase=uTime*0.7;
+        vec2 rel=(uv-uMouse)*aspect;
+        vec2 velDir=length(uVel)>0.0008?normalize(uVel):vec2(1.0,0.0);
+        float along=dot(rel,velDir), perp=dot(rel,vec2(-velDir.y,velDir.x));
+        float speed=clamp(length(uVel)*10.0,0.0,1.0);
+        float stretch=1.0+speed*1.7;
+        float blobDist=length(vec2(along/stretch,perp));
+        float blob=smoothstep(0.68,0.0,blobDist)*uIntensity;
+        vec2 flowP=uv*2.6+uSeed;
+        float n1=fbm(flowP+phase*0.22)-0.5;
+        float n2=fbm(flowP+17.3+phase*0.22)-0.5;
+        vec2 disp=vec2(n1,n2)*(0.05+blob*0.16);
+        vec2 guv=uv*vec2(2.1,1.7)+uSeed*3.1+disp*2.0;
+        float wave=sin(guv.x*2.1+guv.y*1.5+phase)*0.5+0.5;
+        float wave2=fbm(guv*1.35+phase*0.18);
+        float tone=clamp(wave*0.55+wave2*0.45,0.0,1.0);
+        vec3 base = tone<0.5 ? mix(uC2,uC1,tone*2.0) : mix(uC1,uC0,(tone-0.5)*2.0);
+        float speck=noise(uv*46.0+uSeed*9.0+disp*6.0);
+        base += (speck-0.5)*0.05;
+        vec3 lightTint = uC0*0.65+vec3(0.5,0.55,0.45); // brand color kept, never washes to plain white
+        vec3 col=clamp(mix(base, lightTint, blob*0.6), 0.0, 1.0);
+        gl_FragColor=vec4(col,1.0);
+      }`;
+    const compile=(gl,type,src)=>{ const s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s; };
+    const states=[];
+    cards.forEach((card,ci)=>{
+      try{
+        const colors=card.getAttribute('data-colors').split(',').map(hexToRgb);
+        const canvas=document.createElement('canvas');
+        canvas.setAttribute('aria-hidden','true');
+        canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:block';
+        card.insertBefore(canvas, card.firstChild);
+        const gl=canvas.getContext('webgl',{antialias:false,alpha:false,preserveDrawingBuffer:true});
+        if(!gl) throw new Error('no webgl context');
+        const prog=gl.createProgram();
+        gl.attachShader(prog, compile(gl,gl.VERTEX_SHADER,VERT));
+        gl.attachShader(prog, compile(gl,gl.FRAGMENT_SHADER,FRAG));
+        gl.linkProgram(prog);
+        if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+        gl.useProgram(prog);
+        const buf=gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+        const loc=gl.getAttribLocation(prog,'p');
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+        const u={
+          res:gl.getUniformLocation(prog,'uRes'), mouse:gl.getUniformLocation(prog,'uMouse'),
+          vel:gl.getUniformLocation(prog,'uVel'), intensity:gl.getUniformLocation(prog,'uIntensity'),
+          time:gl.getUniformLocation(prog,'uTime'), c0:gl.getUniformLocation(prog,'uC0'),
+          c1:gl.getUniformLocation(prog,'uC1'), c2:gl.getUniformLocation(prog,'uC2'),
+          seed:gl.getUniformLocation(prog,'uSeed'),
+        };
+        const s={card,canvas,gl,prog,u,c0:colors[0],c1:colors[1]||colors[0],c2:colors[colors.length-1],seed:ci*7.13,
+          mx:0.5,my:0.5,tx:0.5,ty:0.5,px:0.5,py:0.5,vx:0,vy:0,intensity:0,target:0,t:0,active:false,hovering:false};
+        const resize=()=>{ const r=card.getBoundingClientRect(); const dpr=Math.min(window.devicePixelRatio||1,2);
+          canvas.width=Math.max(1,r.width*dpr); canvas.height=Math.max(1,r.height*dpr); gl.viewport(0,0,canvas.width,canvas.height); };
+        resize();
+        s.resize=resize;
+        states.push(s);
+      }catch(err){ console.error('ticket shader init failed', err); }
+    });
+    if(!states.length) return;
+    const renderFrame=(s,dt)=>{
+      const {gl,u}=s;
+      s.mx+=(s.tx-s.mx)*0.09; s.my+=(s.ty-s.my)*0.09;
+      s.vx=(s.mx-s.px)/Math.max(dt,0.001); s.vy=(s.my-s.py)/Math.max(dt,0.001);
+      s.px=s.mx; s.py=s.my;
+      const tau=s.target>s.intensity?0.09:0.28; // fast ramp in, slow ~600-800ms ease out
+      s.intensity+=(s.target-s.intensity)*Math.min(1,dt/tau);
+      s.t+=dt; // idle color loop always advances while on-screen
+      gl.useProgram(s.prog);
+      gl.uniform2f(u.res,s.canvas.width,s.canvas.height);
+      gl.uniform2f(u.mouse,s.mx,1-s.my);
+      gl.uniform2f(u.vel,s.vx,s.vy);
+      gl.uniform1f(u.intensity,s.intensity);
+      gl.uniform1f(u.time,s.t);
+      gl.uniform3f(u.c0,s.c0[0],s.c0[1],s.c0[2]);
+      gl.uniform3f(u.c1,s.c1[0],s.c1[1],s.c1[2]);
+      gl.uniform3f(u.c2,s.c2[0],s.c2[1],s.c2[2]);
+      gl.uniform1f(u.seed,s.seed);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+    };
+    let last=performance.now();
+    const loop=(now)=>{
+      const dt=Math.min((now-last)/1000,0.05); last=now;
+      let any=false;
+      states.forEach(s=>{ if(s.active){ renderFrame(s,dt); any=true; } });
+      this._ticketShaderRaf = any ? requestAnimationFrame(loop) : null;
+    };
+    const ensureLoop=()=>{ if(!this._ticketShaderRaf){ last=performance.now(); this._ticketShaderRaf=requestAnimationFrame(loop); } };
+    this._ticketShaderIO=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        const s=states.find(st=>st.canvas===e.target);
+        if(!s) return;
+        s.active=e.isIntersecting;
+        if(e.isIntersecting) ensureLoop();
+      });
+    },{threshold:0.05});
+    states.forEach(s=>{
+      try{ renderFrame(s,0); }catch(err){ console.error('ticket shader first frame failed', err); }
+      this._ticketShaderIO.observe(s.canvas);
+      const onMove=(e)=>{ const r=s.card.getBoundingClientRect(); s.tx=(e.clientX-r.left)/r.width; s.ty=(e.clientY-r.top)/r.height; s.hovering=true; s.target=1; ensureLoop(); };
+      const onLeave=()=>{ s.hovering=false; s.target=0; };
+      const onResize=()=>s.resize();
+      s.card.addEventListener('pointermove', onMove, {passive:true});
+      s.card.addEventListener('pointerleave', onLeave, {passive:true});
+      window.addEventListener('resize', onResize, {passive:true});
+      this._ticketCleanup = this._ticketCleanup || [];
+      this._ticketCleanup.push(()=>{ s.card.removeEventListener('pointermove',onMove); s.card.removeEventListener('pointerleave',onLeave); window.removeEventListener('resize',onResize); });
+    });
+  }
+  initTickets(){
+    // Subtle pointer tilt on the ticket cards — transform only, active only while a pointer is over one
+    if(this.reduce) return;
+    const cards=[...document.querySelectorAll('[data-ticket]:not([data-tilt-wired])')];
+    if(!cards.length) return;
+    cards.forEach(card=>{
+      card.setAttribute('data-tilt-wired','');
+      const onMove=(e)=>{
+        const r=card.getBoundingClientRect();
+        const dx=(e.clientX-r.left)/r.width-0.5, dy=(e.clientY-r.top)/r.height-0.5;
+        card.style.transition='none';
+        card.style.transform=`perspective(900px) rotateX(${(-dy*8).toFixed(2)}deg) rotateY(${(dx*8).toFixed(2)}deg) scale(1.015)`;
+      };
+      const onLeave=()=>{ card.style.transition='transform .4s cubic-bezier(.22,1,.36,1)'; card.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)'; };
+      card.addEventListener('pointermove', onMove, {passive:true});
+      card.addEventListener('pointerleave', onLeave, {passive:true});
+      this._ticketCleanup = this._ticketCleanup || [];
+      this._ticketCleanup.push(()=>{ card.removeEventListener('pointermove',onMove); card.removeEventListener('pointerleave',onLeave); });
+    });
+  }
+  initArrivalBeat(){
+    const frame=document.querySelector('[data-arrival-frame]');
+    const metrics=[...document.querySelectorAll('[data-arrival-metric]')];
+    if(!frame || this.reduce) return;
+    frame.style.transition='opacity 1.1s cubic-bezier(.22,1,.36,1)';
+    frame.style.opacity='0';
+    metrics.forEach(el=>{ el.style.transition='opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1)'; el.style.opacity='0'; el.style.transform='translateY(14px)'; });
+    this.arrivalImgIO=new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{ if(e.isIntersecting){ this.arrivalImgIO.unobserve(e.target); frame.style.opacity='1'; } });
+    },{ threshold:0.05 });
+    this.arrivalImgIO.observe(frame);
+    this.arrivalMetricIO=new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{ if(e.isIntersecting){ this.arrivalMetricIO.unobserve(e.target);
+        metrics.forEach((el,i)=>{ setTimeout(()=>{ el.style.opacity='1'; el.style.transform='none'; }, i*160); });
+      }});
+    },{ threshold:0.4 });
+    this.arrivalMetricIO.observe(frame);
+  }
+  initNetworkChain(){
+    const root=document.querySelector('[data-wtd-diagram]');
+    const center=document.querySelector('[data-wtd-center]');
+    const particle=document.querySelector('[data-wtd-particle]');
+    const ring=root?root.querySelector('[data-wtd-pulse-ring]'):null;
+    if(!root || !center) return;
+    if(this.reduce){
+      center.style.opacity='1'; center.style.transform='translate(-50%,-50%) scale(1)';
+      root.querySelectorAll('[data-wtd-path]').forEach(p=>{p.style.strokeDashoffset='0'; p.style.stroke='rgba(245,251,247,.22)';});
+      root.querySelectorAll('[data-wtd-node]').forEach(n=>{n.setAttribute('opacity','0.65'); n.setAttribute('fill','#F5FBF7'); n.style.transform='scale(1)'; n.dataset.activated='1';});
+      root.querySelectorAll('[data-wtd-card]').forEach(c=>{c.style.opacity='1';c.style.transform='none';});
+      root.querySelectorAll('[data-wtd-dot]').forEach(d=>{d.style.opacity='1';});
+      return;
+    }
+    const seq=[
+      {node:'live-discovery',card:'live-discovery',path:'1',x1:50,y1:50,x2:50,y2:12},
+      {node:'slot-lock',card:'slot-lock',path:'2',x1:50,y1:12,x2:82.91,y2:31},
+      {node:'payment',card:'payment',path:'3',x1:82.91,y1:31,x2:82.91,y2:69},
+      {node:'booking-confirmed',card:'booking-confirmed',path:'4',x1:82.91,y1:69,x2:50,y2:88},
+      {node:'owner-dashboard',card:'owner-dashboard',path:'5',x1:50,y1:88,x2:17.09,y2:69},
+      {node:'game-night',card:'game-night',path:'6',x1:17.09,y1:69,x2:17.09,y2:31},
+      {path:'7',closeLoop:true,x1:17.09,y1:31,x2:50,y2:12}
+    ];
+    const dur=650;
+    const cardBase={'live-discovery':'translateX(-50%)','slot-lock':'','payment':'','booking-confirmed':'translateX(-50%)','owner-dashboard':'','game-night':''};
+    let activeCard=null, activeCardBase='';
+    const activate=(step,onDone)=>{
+      const path=root.querySelector('[data-wtd-path="'+step.path+'"]');
+      const node=root.querySelector('[data-wtd-node="'+step.node+'"]');
+      const card=document.querySelector('[data-wtd-card="'+step.card+'"]');
+      const dots=card?[...card.querySelectorAll('[data-wtd-dot]')]:[];
+      const base=cardBase[step.card]||'';
+      if(path){ path.style.transition='stroke-dashoffset '+dur+'ms linear'; }
+      if(particle){
+        particle.style.transition='none';
+        particle.setAttribute('cx',step.x1); particle.setAttribute('cy',step.y1);
+        particle.style.opacity='1';
+        void particle.getBoundingClientRect();
+        particle.style.transition='cx '+dur+'ms linear, cy '+dur+'ms linear';
+      }
+      requestAnimationFrame(()=>{
+        if(path) path.style.strokeDashoffset='0';
+        if(particle){ particle.setAttribute('cx',step.x2); particle.setAttribute('cy',step.y2); }
+      });
+      setTimeout(()=>{
+        if(path) path.style.strokeDashoffset='0';
+        if(particle){ particle.setAttribute('cx',step.x2); particle.setAttribute('cy',step.y2); }
+      },20);
+      setTimeout(()=>{
+        // pulse arrives: destination node activates
+        if(node){ node.setAttribute('opacity','1'); node.setAttribute('fill','#34D498'); node.dataset.activated='1'; node.style.transform='scale(1.12)'; }
+        if(path) path.style.stroke='rgba(125,237,191,.16)';
+        if(particle) particle.style.opacity='0';
+        if(ring){
+          ring.setAttribute('cx',step.x2); ring.setAttribute('cy',step.y2);
+          ring.style.transition='none'; ring.setAttribute('r','1.4'); ring.style.opacity='0.85';
+          void ring.getBoundingClientRect();
+          ring.style.transition='r 550ms cubic-bezier(.22,1,.36,1), opacity 550ms ease';
+          requestAnimationFrame(()=>{ ring.setAttribute('r','5'); ring.style.opacity='0'; });
+        }
+        if(activeCard && activeCard!==card){ activeCard.style.transform=(activeCardBase?activeCardBase+' ':'')+'scale(1)'; activeCard.style.opacity='0.55'; }
+        if(card){ card.style.opacity='1'; card.style.transform=(base?base+' ':'')+'scale(1.03)'; }
+        dots.forEach(d=>{ d.style.opacity='1'; });
+        activeCard=card; activeCardBase=base;
+        if(step.closeLoop){
+          const loopNode=root.querySelector('[data-wtd-node="live-discovery"]');
+          if(loopNode){ loopNode.style.transform='scale(1.1)'; loopNode.setAttribute('opacity','1'); loopNode.setAttribute('fill','#34D498'); }
+          setTimeout(()=>{ if(loopNode){ loopNode.style.transform='scale(1)'; loopNode.setAttribute('opacity','0.65'); loopNode.setAttribute('fill','#F5FBF7'); } }, 260);
+        }
+        setTimeout(()=>{
+          if(node){ node.style.transform='scale(1)'; node.setAttribute('opacity','0.65'); node.setAttribute('fill','#F5FBF7'); }
+        }, 260);
+        onDone();
+      }, dur+40);
+    };
+    const run=()=>{
+      center.style.opacity='1'; center.style.transform='translate(-50%,-50%) scale(1)';
+      setTimeout(()=>{
+        const next=(i)=>{
+          if(i>=seq.length){
+            if(activeCard){ const c=activeCard, b=activeCardBase; setTimeout(()=>{ c.style.transform=(b?b+' ':'')+'scale(1)'; }, 400); }
+            return;
+          }
+          activate(seq[i], ()=>setTimeout(()=>next(i+1),150));
+        };
+        next(0);
+      }, 500);
+    };
+    let fired=false;
+    const checkVisible=()=>{
+      if(fired) return;
+      const r=root.getBoundingClientRect();
+      const vh=window.innerHeight||document.documentElement.clientHeight;
+      const visible=Math.min(r.bottom,vh)-Math.max(r.top,0);
+      if(r.height>0 && visible/r.height>=0.3){
+        fired=true;
+        window.removeEventListener('scroll',checkVisible);
+        window.removeEventListener('resize',checkVisible);
+        if(this.wtdIO) this.wtdIO.disconnect();
+        run();
+      }
+    };
+    window.addEventListener('scroll',checkVisible,{passive:true});
+    window.addEventListener('resize',checkVisible,{passive:true});
+    checkVisible();
+    if('IntersectionObserver' in window){
+      this.wtdIO=new IntersectionObserver((ents)=>{
+        ents.forEach(e=>{ if(e.isIntersecting) checkVisible(); });
+      },{ threshold:0.3 });
+      this.wtdIO.observe(root);
+    }
+    // hover: highlight a node's direct connections, dim the rest — never both a node and its card animating unrelated things
+    const adjacency={
+      'live-discovery':['1','2','7'], 'slot-lock':['2','3'], 'payment':['3','4'],
+      'booking-confirmed':['4','5'], 'owner-dashboard':['5','6'], 'game-night':['6','7']
+    };
+    const pathEndpoints={'1':['live-discovery'],'2':['live-discovery','slot-lock'],'3':['slot-lock','payment'],'4':['payment','booking-confirmed'],'5':['booking-confirmed','owner-dashboard'],'6':['owner-dashboard','game-night'],'7':['game-night','live-discovery']};
+    const allNodes=[...root.querySelectorAll('[data-wtd-node]')];
+    const allPaths=[...root.querySelectorAll('[data-wtd-path]')];
+    const highlight=(nodeId)=>{
+      const paths=adjacency[nodeId]||[];
+      const neighborNodes=new Set([nodeId]);
+      paths.forEach(pid=>{ (pathEndpoints[pid]||[]).forEach(n=>neighborNodes.add(n)); });
+      allNodes.forEach(n=>{ n.setAttribute('opacity', neighborNodes.has(n.getAttribute('data-wtd-node')) ? '1' : '0.12'); });
+      allPaths.forEach(p=>{ p.style.opacity = paths.includes(p.getAttribute('data-wtd-path')) ? '0.9' : '0.06'; });
+    };
+    const resetHighlight=()=>{
+      allNodes.forEach(n=>{ n.setAttribute('opacity', n.dataset.activated==='1' ? '0.65' : '0.38'); });
+      allPaths.forEach(p=>{ p.style.opacity=''; });
+    };
+    allNodes.forEach(n=>{
+      const id=n.getAttribute('data-wtd-node');
+      n.addEventListener('mouseenter',()=>highlight(id));
+      n.addEventListener('mouseleave',resetHighlight);
+    });
+    [...root.querySelectorAll('[data-wtd-card]')].forEach(c=>{
+      const id=c.getAttribute('data-wtd-card');
+      c.addEventListener('mouseenter',()=>highlight(id));
+      c.addEventListener('mouseleave',resetHighlight);
+    });
+  }
+  initOwnerBeat(){
+    const frame=document.querySelector('[data-owner-frame]');
+    const lines=[...document.querySelectorAll('[data-owner-line]')];
+    if((!frame && !lines.length) || this.reduce) return;
+    if(frame){ frame.style.transition='opacity 1.1s cubic-bezier(.22,1,.36,1), transform 1.1s cubic-bezier(.22,1,.36,1)'; frame.style.opacity='0'; frame.style.transform='translateY(24px)'; }
+    lines.forEach(el=>{ el.style.transition='opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1)'; el.style.opacity='0'; el.style.transform='translateY(24px)'; });
+    const target=frame||lines[0];
+    const ownerImg=document.querySelector('[data-owner-img]');
+    this.ownerIO=new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{ if(e.isIntersecting){ this.ownerIO.unobserve(e.target);
+        if(frame){ frame.style.opacity='1'; frame.style.transform='none'; }
+        lines.forEach((el,i)=>{ setTimeout(()=>{ el.style.opacity='1'; el.style.transform='none'; }, i*80); });
+        if(ownerImg) setTimeout(()=>{ ownerImg.style.animationPlayState='running'; }, 1100);
+      }});
+    },{ threshold:0.3 });
+    this.ownerIO.observe(target);
+    if(ownerImg && frame){
+      this.ownerDriftIO=new IntersectionObserver((ents)=>{
+        ents.forEach(e=>{ if(!e.isIntersecting) ownerImg.style.animationPlayState='paused'; else if(frame.style.opacity==='1') ownerImg.style.animationPlayState='running'; });
+      },{ threshold:0.15 });
+      this.ownerDriftIO.observe(frame);
+    }
+  }
+  initEmptyHours(){
+    const frame=document.querySelector('[data-eh-frame]');
+    const img=document.querySelector('[data-eh-img]');
+    if(!frame || this.reduce) return;
+    frame.style.transition='opacity 1.3s cubic-bezier(.22,1,.36,1), transform 1.5s cubic-bezier(.22,1,.36,1)';
+    frame.style.opacity='.96';
+    frame.style.transform='scale(1.03)';
+    this.ehIO=new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{
+        if(e.isIntersecting){
+          frame.style.opacity='1'; frame.style.transform='scale(1)'; this.ehIO.unobserve(e.target);
+          if(img) setTimeout(()=>{ img.style.animationPlayState='running'; }, 1350);
+        }
+      });
+    },{ threshold:0.3 });
+    this.ehIO.observe(frame);
+    if(img){
+      this.ehDriftIO=new IntersectionObserver((ents)=>{
+        ents.forEach(e=>{ if(!e.isIntersecting) img.style.animationPlayState='paused'; else if(frame.style.opacity==='1') img.style.animationPlayState='running'; });
+      },{ threshold:0.15 });
+      this.ehDriftIO.observe(frame);
+    }
+  }
+  measure(){
+    this._vh = window.innerHeight;
+    const sec=this.discSecRef.current, track=this.discTrackRef.current;
+    if(!sec||!track) return;
+    track.style.transform='translate3d(0,0,0)';
+    this.maxX = Math.max(0, track.scrollWidth - window.innerWidth + 24);
+    this._discH = window.innerHeight + this.maxX;
+    sec.style.height = this._discH+'px';
+    // cache the section's document-space top once — no per-frame layout reads
+    const y = this.lenis ? this.lenis.scroll : window.pageYOffset;
+    this._discTop = sec.getBoundingClientRect().top + y;
+    // cache count-up trigger positions (document space) — recomputed on resize / ScrollTrigger refresh
+    if(this._counts){ this._countMeta = this._counts.map(el=>({el, top: el.getBoundingClientRect().top + y})); }
+  }
+  initScrollFX(){
+    if(this.reduce) return;
+    this.done = new Set();
+    this._counts = [...document.querySelectorAll('[data-count]')];
+    this._countsLeft = this._counts.length;
+    this.measure();
+    this._navOn = null;
+    this._lastY = -1;
+    this._idle = 0;
+    this._fxActive = false;
+    // One per-frame worker, attached to the shared GSAP ticker; reads cached scroll, sleeps when idle.
+    this._fx = ()=>{
+      const y = this.lenis ? this.lenis.scroll : window.pageYOffset;
+      const vh = this._vh;
+      let busy = false;
+      const nav=this.navRef.current;
+      if(nav){ const on=y>60; if(on!==this._navOn){ this._navOn=on; nav.style.background=on?'rgba(4,48,31,.94)':'transparent'; nav.style.borderBottom=on?'1px solid rgba(255,255,255,.06)':'1px solid transparent'; } }
+      if(this.mouse && y < vh){
+        this.mouse.cx += (this.mouse.tx-this.mouse.cx)*0.045;
+        this.mouse.cy += (this.mouse.ty-this.mouse.cy)*0.045;
+        const moved = Math.abs(this.mouse.tx-this.mouse.cx) > 0.0006 || Math.abs(this.mouse.ty-this.mouse.cy) > 0.0006;
+        if(moved || !this._settled){
+          if(!moved){ this.mouse.cx=this.mouse.tx; this.mouse.cy=this.mouse.ty; }  // snap on settle → clean stop, no residual frames
+          this._settled = !moved;
+          for(const o of this.pLayers){ const x=(-this.mouse.cx*o.f).toFixed(2), yy=(-this.mouse.cy*o.f).toFixed(2); o.el.style.transform=o.base+'translate3d('+x+'px,'+yy+'px,0)'; }
+          // nav no longer parallaxes — translating a backdrop-filter:blur() element forces a per-frame backdrop re-blur; ±2px drift wasn't worth the compositing cost
+        }
+        if(moved) busy=true;
+      }
+      const track=this.discTrackRef.current;
+      if(track && this.maxX>0 && this._discTop!=null){ if(y+vh>this._discTop && y<this._discTop+this._discH){ const p=Math.min(1,Math.max(0,(y-this._discTop)/this.maxX)); track.style.transform='translate3d('+(-this.maxX*p)+'px,0,0)'; } }
+      if(this._countsLeft){
+        for(const m of this._countMeta){ if(this.done.has(m.el)) continue; if(y + vh*0.85 > m.top){ this.done.add(m.el); this.countUp(m.el); } }
+        this._countsLeft = this._countMeta.length - this.done.size;
+      }
+      if(y!==this._lastY){ this._lastY=y; busy=true; if(nav) nav.style.opacity='0.9'; clearTimeout(this._navScrollTO); this._navScrollTO=setTimeout(()=>{ if(nav) nav.style.opacity='1'; },90); }
+      if(busy){ this._idle=0; }
+      else if(++this._idle>8 && window.gsap){ window.gsap.ticker.remove(this._fx); this._fxActive=false; }
+    };
+  }
+  wake(){
+    if(this.reduce || this._fxActive || !this._fx || !window.gsap) return;
+    this._idle=0; this._fxActive=true; window.gsap.ticker.add(this._fx);
+  }
+  countUp(el){
+    const end=parseFloat(el.dataset.count), dec=+(el.dataset.dec||0), pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+    const dur=1500, t0=performance.now();
+    const step=(now)=>{ let k=Math.min(1,(now-t0)/dur); k=1-Math.pow(1-k,3); el.textContent=pre+(end*k).toFixed(dec)+suf; if(k<1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  componentWillUnmount(){
+    if(this._physCleanup) this._physCleanup();
+    clearTimeout(this._physWait);
+    if(this._ticketCleanup) this._ticketCleanup.forEach(fn=>fn());
+    if(this._ticketShaderIO) this._ticketShaderIO.disconnect();
+    if(this._ticketShaderRaf) cancelAnimationFrame(this._ticketShaderRaf);
+    document.removeEventListener('click', this._onAnchorClick);
+    clearInterval(this.typer);
+    if(window.gsap && this._fx){ try{ window.gsap.ticker.remove(this._fx); }catch(e){} }
+    this._fxActive=false;
+    if(this.lenis && this._onLenisScroll){ try{ this.lenis.off('scroll', this._onLenisScroll); }catch(e){} }
+    if(this._onSTRefresh && window.ScrollTrigger){ try{ window.ScrollTrigger.removeEventListener('refresh', this._onSTRefresh); }catch(e){} }
+    window.removeEventListener('resize', this.onResize);
+    if(this.onMove) window.removeEventListener('mousemove', this.onMove);
+    if(this.onLeave) window.removeEventListener('mouseleave', this.onLeave);
+    if(this._onWinScroll) window.removeEventListener('scroll', this._onWinScroll);
+    if(this.heroIO) this.heroIO.disconnect();
+    if(this.animIO) this.animIO.disconnect();
+    if(this.discIO) this.discIO.disconnect();
+    if(this._libTimer) clearInterval(this._libTimer);
+    if(this._cineST){ try{ this._cineST.kill(); }catch(e){} }
+    if(this.io) this.io.disconnect();
+    if(this.ecoIO) this.ecoIO.disconnect();
+    if(this.ecoPlayIO) this.ecoPlayIO.disconnect();
+    if(this._ecoScroll){ window.removeEventListener('scroll',this._ecoScroll); this._ecoScroll=null; }
+    clearTimeout(this._ecoRightWait);
+    if(this._ecoAnims) this._ecoAnims.forEach(a=>{ try{ a.cancel(); }catch(e){} });
+    if(this.recogIO) this.recogIO.disconnect();
+    if(this.recogLineIO) this.recogLineIO.disconnect();
+    clearTimeout(this._ecoWait);
+    clearTimeout(this.typeStart);
+    if(window.__turfdCityTL){ try{ window.__turfdCityTL.scrollTrigger&&window.__turfdCityTL.scrollTrigger.kill(); window.__turfdCityTL.kill(); }catch(e){} window.__turfdCityTL=null; }
+    if(window.__turfdTimelineTL){ try{ window.__turfdTimelineTL.kill(); }catch(e){} window.__turfdTimelineTL=null; }
+    if(this._recogStopLoop){ this._recogStopLoop(); }
+    if(this._tlOnScroll){ window.removeEventListener('resize', this._tlOnScroll); window.removeEventListener('scroll', this._tlOnScroll); if(window.__turfdLenis && window.__turfdLenis.off) window.__turfdLenis.off('scroll', this._tlOnScroll); }
+    this._tlDestroyed=true; clearTimeout(this._timelineWait); clearTimeout(this._settleTimeout);
+  }
+  startType(text){
+    clearInterval(this.typer);
+    if(this.reduce){ this.setState({typed:text, typing:false}); return; }
+    this.setState({typed:'', typing:true});
+    let i=0;
+    this.typeStart = setTimeout(()=>{
+      this.setState({typing:false});
+      this.typer=setInterval(()=>{ i+=2; this.setState({typed:text.slice(0,i)}); if(i>=text.length) clearInterval(this.typer); }, 16);
+    }, 550);
+  }
+  openFaq(i){ clearTimeout(this.typeStart); this.setState({faq:i}); this.startType(this.faq[i].a); }
+
+  renderVals(){
+    const s = this.state, player = s.track==='player';
+    return {
+      navRef:this.navRef, discSecRef:this.discSecRef, discTrackRef:this.discTrackRef,
+      heroRef:this.heroRef, heroStageRef:this.heroStageRef, heroPhotoRef:this.heroPhotoRef, heroBloomRef:this.heroBloomRef, heroFogRef:this.heroFogRef, heroDustRef:this.heroDustRef, heroContentRef:this.heroContentRef,
+      openVideo:(e)=>{ if(e)e.preventDefault(); this.setState({videoOpen:true}); },
+      closeVideo:()=>this.setState({videoOpen:false}),
+      stopProp:(e)=>e.stopPropagation(),
+      videoOpacity: s.videoOpen?1:0, videoPE: s.videoOpen?'auto':'none', videoVis: s.videoOpen?'visible':'hidden', videoScale: s.videoOpen?1:0.92,
+      sports:this.sports.map(s=>({...s, bg:`url("${s.img}")`})),
+      grassBlades: Array.from({length:34},(_,i)=>({h:(13+((i*29)%20)), d:(i*0.028).toFixed(2)})),
+      isDesktop:s.isDesktop,
+      drawerX: s.drawer?'0%':'110%',
+      backdropOpacity: s.drawer?1:0,
+      drawerPE: s.drawer?'auto':'none', drawerVis: s.drawer?'visible':'hidden',
+      toggleDrawer:()=>this.setState(v=>({drawer:!v.drawer})),
+      closeDrawer:()=>this.setState({drawer:false}),
+      navItems:[
+        {t:'Home',href:'#hero'},
+        {t:'How it works',href:'#process'},
+        {t:"Why Turf'd",href:'#why-turf-d'},
+        {t:'FAQ',href:'#faq'},
+        {t:'Join',href:'#join'}
+      ].map(n=>({...n, onClick:()=>this.setState({drawer:false})})),
+      heroDone:s.heroDone, heroPending:!s.heroDone,
+      ctaDone:s.ctaDone, ctaPending:!s.ctaDone,
+      submitHero:(e)=>{ e.preventDefault(); this.setState({heroDone:true}); },
+      submitCta:(e)=>{ e.preventDefault(); this.setState({ctaDone:true}); },
+      ph0: s.screen===0?1:0, ph1: s.screen===1?1:0, ph2: s.screen===2?1:0,
+      illoP: player?1:0, illoO: player?0:1,
+      thumbX: player?'0%':'100%',
+      playerColor: player?'#04301F':'rgba(245,251,247,.6)',
+      ownerColor: player?'rgba(245,251,247,.6)':'#04301F',
+      setPlayer:()=>this.setState({track:'player'}),
+      setOwner:()=>this.setState({track:'owner'}),
+      trackCaption: player?'For the squad':'For the operator',
+      steps: this.steps[s.track].map((st,i)=>({...st, n:String(i+1).padStart(2,'0')})),
+      faqItems: this.faq.map((f,i)=>({ q:f.q, open:i===s.faq, typed:i===s.faq?s.typed:'', typing:i===s.faq&&s.typing, onOpen:()=>this.openFaq(i) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

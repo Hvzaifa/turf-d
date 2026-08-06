@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* Design tokens — design/project/Turfd Landing.dc.html :root */
+@theme {
+  --color-ink: #04301f;
+  --color-turf: #106043;
+  --color-mint: #34d498;
+  --color-deep: #0a3a26;
+  --color-lmint: #7dedbf;
+  --color-chalk: #f5fbf7;
+  --color-card: #072d1e;
+  --color-muted: #0a3a26;
+  --color-mfg: #8fbfa6;
+  --color-lime: #d3d089;
+  --color-warm: #ede9d6;
+  --color-volt: #ff7a3c;
+
+  --font-display: "Anton", Impact, sans-serif;
+  --font-sans: "Inter Tight", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* The design sets line-height per element and relies on `normal`
+       everywhere else. Preflight's 1.5 default silently grows form controls
+       and shifts the vertically centred hero copy. */
+    line-height: normal;
+  }
+
+  body {
+    margin: 0;
+    background: #04301f;
+    color: #f5fbf7;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: #34d498;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #7dedbf;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+  input {
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: #34d498;
+    color: #04301f;
+  }
+
+  [id] {
+    scroll-margin-top: 100px;
+  }
+
+  :focus-visible {
+    outline: 2px solid #d3d089;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+
+/* Ambient layer animations are paused wholesale while the hero is off-screen. */
+#hero [data-layer] img {
+  animation-play-state: var(--amb, running) !important;
+}
+
+#hero input:focus-visible {
+  outline: none;
+}
+
+#hero form:focus-within {
+  border-color: rgba(211, 208, 137, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(211, 208, 137, 0.1);
+}
+
+@media (max-height: 640px) {
+  [data-layer="scroll-cue"] {
+    display: none !important;
+  }
+}
+
+@keyframes fogBg {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.056);
+    animation-timing-function: cubic-bezier(0.42, 0.08, 0.58, 0.96);
+  }
+  26% {
+    transform: translate3d(2.1%, -0.5%, 0) scale(1.068);
+    animation-timing-function: cubic-bezier(0.5, 0.05, 0.55, 0.98);
+  }
+  53% {
+    transform: translate3d(0.5%, -1.3%, 0) scale(1.072);
+    animation-timing-function: cubic-bezier(0.45, 0.02, 0.5, 1);
+  }
+  79% {
+    transform: translate3d(-2%, -0.6%, 0) scale(1.06);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.6, 0.95);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.056);
+  }
+}
+
+@keyframes fogFg {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.122);
+    animation-timing-function: cubic-bezier(0.5, 0.06, 0.5, 0.94);
+  }
+  24% {
+    transform: translate3d(-2.6%, 0.7%, 0) scale(1.132);
+    animation-timing-function: cubic-bezier(0.45, 0.03, 0.55, 1);
+  }
+  51% {
+    transform: translate3d(-0.6%, 1.5%, 0) scale(1.138);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 0.98);
+  }
+  77% {
+    transform: translate3d(2.4%, 0.7%, 0) scale(1.128);
+    animation-timing-function: cubic-bezier(0.55, 0.05, 0.6, 0.95);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.122);
+  }
+}
+
+@keyframes rayPulse {
+  0% {
+    opacity: 0.05;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.7, 0.4);
+  }
+  38% {
+    opacity: 0.13;
+    animation-timing-function: cubic-bezier(0.35, 0.4, 0.5, 1);
+  }
+  55% {
+    opacity: 0.07;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.6, 0.5);
+  }
+  82% {
+    opacity: 0.155;
+    animation-timing-function: cubic-bezier(0.3, 0.5, 0.5, 1);
+  }
+  100% {
+    opacity: 0.05;
+  }
+}
+
+@keyframes leafSway {
+  0% {
+    transform: rotate(-0.2deg);
+    animation-timing-function: cubic-bezier(0.25, 0.7, 0.4, 1);
+  }
+  19% {
+    transform: rotate(0.34deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.6, 1);
+  }
+  43% {
+    transform: rotate(-0.14deg);
+    animation-timing-function: cubic-bezier(0.22, 0.75, 0.4, 1);
+  }
+  61% {
+    transform: rotate(0.44deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.55, 1);
+  }
+  84% {
+    transform: rotate(-0.28deg);
+    animation-timing-function: cubic-bezier(0.3, 0.6, 0.45, 1);
+  }
+  100% {
+    transform: rotate(-0.2deg);
+  }
+}
+
+@keyframes driftUpA {
+  0% {
+    transform: translate3d(0, 6%, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 0.34;
+  }
+  34% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-2%, -9%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes driftUpB {
+  0% {
+    transform: translate3d(0, 8%, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  62% {
+    opacity: 0.26;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(2.5%, -9%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes filmRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeUpQuiet {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introLift {
+  0%,
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cueLine {
+  0%,
+  100% {
+    transform: scaleY(0.32);
+    opacity: 0.28;
+    animation-timing-function: cubic-bezier(0.3, 0.55, 0.45, 1);
+  }
+  48% {
+    transform: scaleY(1);
+    opacity: 0.82;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.6, 0.9);
+  }
+}
+
+@keyframes cueReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Live availability ────────────────────────────────────────────────── */
+
+/* Below 760px the pin is dropped altogether: the stage stops being sticky and
+   the timeline reads as an ordinary stacked list. */
+@media (max-width: 760px) {
+  [data-timeline-track] {
+    height: auto !important;
+  }
+  [data-timeline-stage] {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: clamp(48px, 10vw, 72px) clamp(20px, 6vw, 28px) !important;
+  }
+  [data-timeline-grid] {
+    grid-template-columns: 1fr !important;
+    gap: clamp(32px, 10vw, 48px) !important;
+  }
+  [data-tl-time] {
+    font-size: clamp(34px, 11vw, 44px) !important;
+  }
+  [data-tl-status] {
+    font-size: clamp(18px, 5vw, 22px) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.001s !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
