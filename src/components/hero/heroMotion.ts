@@ -17,9 +17,7 @@ export const DOLLY_SCALE = 1.34;
 export const DOLLY_SELECTORS = [
   '[data-cam="pitch"]',
   '[data-cam="fog-bg"]',
-  '[data-cam="rays"]',
   '[data-cam="fog-fg"]',
-  '[data-cam="particles"]',
   '[data-layer="mist"]',
   '[data-layer="vignette"]',
 ] as const;
@@ -31,7 +29,7 @@ export const DOLLY_SELECTORS_LITE = [
 ] as const;
 
 /** Atmosphere layers dropped entirely on low-end devices. */
-export const LITE_DISABLED_CAMS = ["particles", "rays", "fog-fg", "fog-bg"] as const;
+export const LITE_DISABLED_CAMS = ["fog-fg", "fog-bg"] as const;
 
 /**
  * Pointer parallax: how far (px) each layer counter-moves at full cursor
@@ -42,8 +40,6 @@ export const POINTER_LAYERS: ReadonlyArray<{
   depth: number;
   base: string;
 }> = [
-  { selector: '[data-layer="particles"]', depth: 24, base: "" },
-  { selector: '[data-layer="rays"]', depth: 18, base: "scaleX(-1) " },
   { selector: '[data-layer="fog-fg"]', depth: 15, base: "scaleX(-1) " },
   { selector: '[data-layer="fog-bg"]', depth: 15, base: "" },
   { selector: '[data-layer="pitch"]', depth: 8, base: "" },

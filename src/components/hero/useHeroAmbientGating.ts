@@ -32,8 +32,6 @@ export function useHeroAmbientGating({ heroRef, profile }: Options) {
       const el = hero.querySelector<HTMLElement>(`[data-cam="${cam}"]`);
       if (el) el.style.display = drop ? "none" : "";
     }
-    const grain = hero.querySelector<HTMLElement>('[data-layer="grain"]');
-    if (grain) grain.style.display = drop ? "none" : "";
     const leaves = hero.querySelector<HTMLElement>('[data-layer="leaves"] img');
     if (leaves) leaves.style.animation = drop ? "none" : "";
 

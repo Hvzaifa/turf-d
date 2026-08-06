@@ -5,13 +5,9 @@ import { useSmoothScroll } from "../../lib/motion/useSmoothScroll";
 import {
   FogBackLayer,
   FogFrontLayer,
-  GrainLayer,
   LeavesLayer,
   MistLayer,
-  ParticlesLayer,
   PitchLayer,
-  RaysLayer,
-  TextAirLayer,
   VignetteLayer,
 } from "./HeroAtmosphere";
 import { HeroContent, type HeroContentProps } from "./HeroContent";
@@ -31,8 +27,12 @@ export type HeroProps = HeroContentProps;
  * `position: sticky`, so the browser does the pinning and ScrollTrigger is left
  * to do nothing but scrub — it never mutates the DOM React owns.
  *
- * Layer order (z): pitch and background atmosphere (2) → midground grade (4) →
- * canopy and particles (5) → copy (6) → grain (7) → intro veil (8).
+ * Layer order (z): pitch and background fog (2) → midground grade (4) →
+ * canopy (5) → copy (6) → intro veil (8).
+ *
+ * The design's rays, particles, film grain and text-air layers are gone: each
+ * changed the frame by only 1-3/255 with no structure, while every
+ * full-viewport layer costs the same to composite.
  */
 export function Hero({ onSubmit, onWatchFilm }: HeroProps) {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -65,18 +65,14 @@ export function Hero({ onSubmit, onWatchFilm }: HeroProps) {
             fully occluded surface under the opaque pitch photo. */}
         <PitchLayer />
         <FogBackLayer />
-        <RaysLayer />
         <MistLayer />
         <VignetteLayer />
         <FogFrontLayer />
         <LeavesLayer />
-        <ParticlesLayer />
 
         <HeroContent onSubmit={onSubmit} onWatchFilm={onWatchFilm} />
 
-        <TextAirLayer />
         <ScrollCue />
-        <GrainLayer />
         <IntroVeil reduce={profile.reduce} />
       </section>
     </div>

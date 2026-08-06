@@ -3,22 +3,17 @@ import type { CSSProperties, ReactNode } from "react";
 /**
  * Hero art, imported so Vite fingerprints and emits it.
  *
- * These are the keyed/graded/resized variants the design composites with — the
- * raw sources in `src/assets/actual` are fully opaque, so the fog, rays, leaves
- * and particle sheets would paint solid rectangles over the pitch instead of
- * layering on top of it. `grain` is the 256px tile the layer repeats, not the
- * 2048px source.
+ * These are the keyed variants: the raw sources are fully opaque, so the fog
+ * and leaf sheets would paint solid rectangles over the pitch instead of
+ * layering on top of it.
  */
 // One fog sheet serves both layers — they are the same artwork, mirrored and
 // animated differently by the front and back cells.
 import fogUrl from "../../assets/hero/fog-keyed.webp";
-import grainUrl from "../../assets/hero/grain.webp";
 import leavesUrl from "../../assets/hero/leaves-1400.webp";
-import lightRaysUrl from "../../assets/hero/light-rays-keyed.webp";
 import pitch1024Url from "../../assets/hero/new-hero-1024.webp";
 import pitch1600Url from "../../assets/hero/new-hero-1600.webp";
 import pitchUrl from "../../assets/hero/new-hero-graded.webp";
-import particlesUrl from "../../assets/hero/particles-keyed.webp";
 
 /**
  * A dolly cell: an independently transformed camera layer. Each one owns its
@@ -141,38 +136,6 @@ export function FogBackLayer() {
   );
 }
 
-/** Floodlight rays raking in from the right. */
-export function RaysLayer() {
-  return (
-    <CameraCell name="rays" z={2}>
-      <div
-        data-layer="rays"
-        className="absolute"
-        style={{
-          top: "-10%",
-          right: "-8%",
-          width: "82%",
-          height: "100%",
-          opacity: 0.55,
-          transform: "scaleX(-1)",
-        }}
-      >
-        <img
-          src={lightRaysUrl}
-          alt=""
-          decoding="async"
-          className="h-full w-full"
-          style={{
-            objectFit: "contain",
-            objectPosition: "top center",
-            animation: "rayPulse 83s linear -34s infinite",
-          }}
-        />
-      </div>
-    </CameraCell>
-  );
-}
-
 /** Midground grade: text scrim, horizon haze, edge falloff. */
 export function MistLayer() {
   return (
@@ -267,81 +230,5 @@ export function LeavesLayer() {
         }}
       />
     </div>
-  );
-}
-
-/** Two offset passes of the same sheet, so the drift never visibly repeats. */
-export function ParticlesLayer() {
-  return (
-    <CameraCell name="particles" z={5}>
-      <div data-layer="particles" className="absolute" style={{ inset: "-6%", opacity: 0.66 }}>
-        <img
-          src={particlesUrl}
-          alt=""
-          decoding="async"
-          className="absolute inset-0"
-          style={{ ...ambientImage, animation: "driftUpA 47s ease-in-out infinite" }}
-        />
-        <img
-          src={particlesUrl}
-          alt=""
-          decoding="async"
-          className="absolute inset-0"
-          style={{
-            ...ambientImage,
-            objectPosition: "right top",
-            animation: "driftUpB 59s ease-in-out -22s infinite",
-          }}
-        />
-      </div>
-    </CameraCell>
-  );
-}
-
-/** Light and mist grazing the copy — immersion, not a container. */
-export function TextAirLayer() {
-  return (
-    <div
-      data-layer="text-air"
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-6"
-      style={{ opacity: 0.6 }}
-    >
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 58% 78% at 64% 32%,rgba(240,238,214,.05),transparent 60%)",
-        }}
-      />
-      <div
-        className="absolute"
-        style={{
-          left: "-6%",
-          right: "38%",
-          bottom: 0,
-          height: "36%",
-          background:
-            "radial-gradient(ellipse 80% 100% at 28% 100%,rgba(182,206,192,.05),transparent 68%)",
-        }}
-      />
-    </div>
-  );
-}
-
-/** Fine film grain, almost imperceptible. */
-export function GrainLayer() {
-  return (
-    <div
-      data-layer="grain"
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-7"
-      style={{
-        opacity: 0.035,
-        backgroundImage: `url(${grainUrl})`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "256px 256px",
-      }}
-    />
   );
 }
