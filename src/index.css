@@ -285,6 +285,65 @@
   }
 }
 
+/* ── Why Turf'd (#why-turf-d) ─────────────────────────────────────────── */
+
+#why-turf-d {
+  contain: paint;
+}
+
+/* Below 760px the ring is dropped for a numbered list — never both. */
+@media (max-width: 760px) {
+  [data-wtd-diagram] {
+    display: none !important;
+  }
+  [data-wtd-list] {
+    display: flex !important;
+  }
+}
+
+/* ── Empty hours (#process) ───────────────────────────────────────────── */
+
+[data-eh-frame] {
+  contain: paint;
+}
+
+/* The photographs' slow ambient drift. Started by each beat once its entrance
+   has finished, and paused whenever the frame leaves the viewport. */
+@keyframes envDrift {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.03) translate3d(-6px, 5px, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  [data-eh-frame] {
+    height: clamp(46vh, 52vh, 56vh) !important;
+  }
+  [data-owner-beat] {
+    grid-template-columns: 1fr !important;
+  }
+  [data-owner-frame] {
+    height: clamp(40vh, 48vh, 52vh) !important;
+  }
+  [data-arrival-frame] {
+    height: clamp(42vh, 50vh, 58vh) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  [data-arrival-metrics] {
+    flex-direction: column;
+    gap: 14px;
+  }
+  [data-arrival-metrics] > span[aria-hidden] {
+    width: 28px;
+    height: 1px;
+  }
+}
+
 /* ── Live availability ────────────────────────────────────────────────── */
 
 /* Below 760px the pin is dropped altogether: the stage stops being sticky and
