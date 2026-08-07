@@ -98,7 +98,7 @@
   }
 }
 
-@keyframes fogBg {
+@keyframes fogDrift {
   0% {
     transform: translate3d(0, 0, 0) scale(1.056);
     animation-timing-function: cubic-bezier(0.42, 0.08, 0.58, 0.96);
@@ -117,54 +117,6 @@
   }
   100% {
     transform: translate3d(0, 0, 0) scale(1.056);
-  }
-}
-
-@keyframes fogFg {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1.122);
-    animation-timing-function: cubic-bezier(0.5, 0.06, 0.5, 0.94);
-  }
-  24% {
-    transform: translate3d(-2.6%, 0.7%, 0) scale(1.132);
-    animation-timing-function: cubic-bezier(0.45, 0.03, 0.55, 1);
-  }
-  51% {
-    transform: translate3d(-0.6%, 1.5%, 0) scale(1.138);
-    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 0.98);
-  }
-  77% {
-    transform: translate3d(2.4%, 0.7%, 0) scale(1.128);
-    animation-timing-function: cubic-bezier(0.55, 0.05, 0.6, 0.95);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) scale(1.122);
-  }
-}
-
-@keyframes leafSway {
-  0% {
-    transform: rotate(-0.2deg);
-    animation-timing-function: cubic-bezier(0.25, 0.7, 0.4, 1);
-  }
-  19% {
-    transform: rotate(0.34deg);
-    animation-timing-function: cubic-bezier(0.5, 0, 0.6, 1);
-  }
-  43% {
-    transform: rotate(-0.14deg);
-    animation-timing-function: cubic-bezier(0.22, 0.75, 0.4, 1);
-  }
-  61% {
-    transform: rotate(0.44deg);
-    animation-timing-function: cubic-bezier(0.5, 0, 0.55, 1);
-  }
-  84% {
-    transform: rotate(-0.28deg);
-    animation-timing-function: cubic-bezier(0.3, 0.6, 0.45, 1);
-  }
-  100% {
-    transform: rotate(-0.2deg);
   }
 }
 
@@ -192,25 +144,11 @@
 
 @keyframes introLift {
   0%,
-  18% {
+  8% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes cueLine {
-  0%,
-  100% {
-    transform: scaleY(0.32);
-    opacity: 0.28;
-    animation-timing-function: cubic-bezier(0.3, 0.55, 0.45, 1);
-  }
-  48% {
-    transform: scaleY(1);
-    opacity: 0.82;
-    animation-timing-function: cubic-bezier(0.55, 0, 0.6, 0.9);
   }
 }
 

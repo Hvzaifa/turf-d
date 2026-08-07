@@ -13,23 +13,28 @@ export const HERO_TRACK_HEIGHT = "260svh";
 export const DOLLY_ORIGIN = "50% 62%";
 export const DOLLY_SCALE = 1.34;
 
-/** Layers that dolly forward with the camera, in draw order. */
+/**
+ * Layers that dolly forward with the camera, in draw order.
+ *
+ * Every entry here is a full-viewport surface re-rastered at a new scale on
+ * every frame of the scrub, so the list is the hero's frame budget. It was
+ * five; the second fog sheet and the standalone vignette are gone and the two
+ * cross-fading grades were moved out of the pitch cell, which leaves three.
+ */
 export const DOLLY_SELECTORS = [
   '[data-cam="pitch"]',
-  '[data-cam="fog-bg"]',
-  '[data-cam="fog-fg"]',
+  '[data-cam="fog"]',
   '[data-layer="mist"]',
-  '[data-layer="vignette"]',
 ] as const;
 
 /** On low-end devices only the two cheapest surfaces keep moving. */
 export const DOLLY_SELECTORS_LITE = [
   '[data-cam="pitch"]',
-  '[data-layer="vignette"]',
+  '[data-layer="mist"]',
 ] as const;
 
 /** Atmosphere layers dropped entirely on low-end devices. */
-export const LITE_DISABLED_CAMS = ["fog-fg", "fog-bg"] as const;
+export const LITE_DISABLED_CAMS = ["fog"] as const;
 
 /**
  * Pointer parallax: how far (px) each layer counter-moves at full cursor
@@ -40,8 +45,7 @@ export const POINTER_LAYERS: ReadonlyArray<{
   depth: number;
   base: string;
 }> = [
-  { selector: '[data-layer="fog-fg"]', depth: 15, base: "scaleX(-1) " },
-  { selector: '[data-layer="fog-bg"]', depth: 15, base: "" },
+  { selector: '[data-layer="fog"]', depth: 15, base: "" },
   { selector: '[data-layer="pitch"]', depth: 8, base: "" },
 ];
 
@@ -52,12 +56,36 @@ export const POINTER_EPSILON = 0.0006;
 /** Frames of no work before the parallax loop detaches from the ticker. */
 export const POINTER_IDLE_FRAMES = 8;
 
-/** Staggered entrance of the hero copy, in seconds after the film opens. */
+/**
+ * Staggered entrance of the hero copy, in seconds.
+ *
+ * The design's original beats ran from 4.4s to 10s, behind a 4.6s film open.
+ * That is a title sequence, not a landing page: the product has to be legible
+ * inside three seconds, so the veil lifts in 1.6s (see `introLift`) and every
+ * line that explains what Turf'd is has arrived by ~1.5s. The order and the
+ * feel of the stagger are unchanged — only its scale.
+ */
 export const COPY_DELAYS = {
-  headlineA: 4.4,
-  headlineB: 5,
-  lead: 6.4,
-  actions: 7.8,
-  meta: 8.8,
-  scrollCue: 10,
+  headlineA: 0.5,
+  headlineB: 0.72,
+  lead: 1,
+  tickets: 1.2,
+  actions: 1.44,
+  sports: 1.62,
+  meta: 1.8,
+  scrollCue: 2.1,
 } as const;
+
+/**
+ * When the phone arrives, as a fraction of the hero's scroll track.
+ *
+ * The hero itself is the ticket stack; the phone is not in it at all. It only
+ * appears once the copy and the tickets have finished clearing (that fade ends
+ * at 0.56) and the frame is nothing but the empty ground — so the two are
+ * never on screen together and nothing competes with the photograph.
+ */
+export const DEVICE_ARRIVE_START = 0.56;
+export const DEVICE_ARRIVE_DURATION = 0.4;
+
+/** Where the phone comes from: a little low and a little small. */
+export const DEVICE_ARRIVE_FROM = { y: 30, scale: 0.94 } as const;

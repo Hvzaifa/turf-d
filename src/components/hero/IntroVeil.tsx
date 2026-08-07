@@ -33,7 +33,9 @@ export function IntroVeil({ reduce }: { reduce: boolean }) {
       style={{
         background:
           "radial-gradient(ellipse 52% 48% at 60% 33%,rgba(40,46,28,.42),rgba(3,9,6,.99) 62%),#020603",
-        animation: "introLift 4.6s cubic-bezier(.42,0,.3,1) both",
+        // 1.6s, not the design's 4.6s: the hero has to be legible in three
+        // seconds, and a four-second black frame spends all of them.
+        animation: "introLift 1.6s cubic-bezier(.42,0,.3,1) both",
       }}
     />
   );

@@ -32,23 +32,30 @@ export function useHeroAmbientGating({ heroRef, profile }: Options) {
       const el = hero.querySelector<HTMLElement>(`[data-cam="${cam}"]`);
       if (el) el.style.display = drop ? "none" : "";
     }
-    const leaves = hero.querySelector<HTMLElement>('[data-layer="leaves"] img');
-    if (leaves) leaves.style.animation = drop ? "none" : "";
 
     if (reduce) {
       hero.style.setProperty("--amb", "paused");
       hero.style.setProperty("--wc", "auto");
+      hero.style.setProperty("--wc-opacity", "auto");
       return;
     }
 
-    // Promoted only across the scrub range the camera actually uses.
+    // Promoted only across the scrub range the camera actually uses. The two
+    // pitch grades are promoted for `opacity` alone — they are never
+    // transformed, and asking for `transform` there would cost a texture for
+    // nothing.
     hero.style.setProperty("--wc", "transform");
+    hero.style.setProperty("--wc-opacity", "opacity");
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           hero.style.setProperty("--amb", entry.isIntersecting ? "running" : "paused");
           hero.style.setProperty("--wc", entry.isIntersecting ? "transform" : "auto");
+          hero.style.setProperty(
+            "--wc-opacity",
+            entry.isIntersecting ? "opacity" : "auto",
+          );
         }
       },
       { threshold: 0 },

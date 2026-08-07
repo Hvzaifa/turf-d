@@ -31,7 +31,7 @@ export function ProblemSection() {
       data-recog
       className="relative"
       style={{
-        background: "linear-gradient(180deg,#0a1f18 0%,#071a12 26%,#04120C 100%)",
+        background: "linear-gradient(180deg,#0C3625 0%,#0A2E1F 26%,#072418 100%)",
       }}
     >
       <div

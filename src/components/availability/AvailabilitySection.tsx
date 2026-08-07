@@ -34,7 +34,7 @@ export function AvailabilitySection() {
     <section
       aria-label="Live availability, always trustworthy"
       className="relative"
-      style={{ background: "#000" }}
+      style={{ background: "#0A2418" }}
     >
       <div ref={trackRef} data-timeline-track className="relative" style={{ height: TRACK_HEIGHT }}>
         <div

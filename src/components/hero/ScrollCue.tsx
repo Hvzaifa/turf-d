@@ -20,7 +20,7 @@ export function ScrollCue() {
           background:
             "linear-gradient(180deg,transparent,rgba(245,251,247,.55) 30%,transparent)",
           transformOrigin: "top",
-          animation: "cueLine 6s cubic-bezier(.45,0,.55,1) infinite",
+          opacity: 0.62,
         }}
       />
     </div>

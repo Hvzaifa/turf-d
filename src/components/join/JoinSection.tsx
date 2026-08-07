@@ -39,7 +39,7 @@ export function JoinSection({ onSubmit }: JoinSectionProps) {
       id="join"
       className="relative overflow-hidden text-center"
       style={{
-        background: "#050F0B",
+        background: "#093322",
         padding: "clamp(140px,18vw,220px) clamp(20px,4vw,40px)",
       }}
     >

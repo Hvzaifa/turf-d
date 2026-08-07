@@ -7,8 +7,6 @@ import type { CSSProperties, ReactNode } from "react";
  * and leaf sheets would paint solid rectangles over the pitch instead of
  * layering on top of it.
  */
-// One fog sheet serves both layers — they are the same artwork, mirrored and
-// animated differently by the front and back cells.
 import fogUrl from "../../assets/hero/fog-keyed.webp";
 import leavesUrl from "../../assets/hero/leaves-1400.webp";
 import pitch1024Url from "../../assets/hero/new-hero-1024.webp";
@@ -54,8 +52,18 @@ const ambientImage: CSSProperties = {
 };
 
 /**
- * Layer 2 — the pitch itself. The colour grade is baked into the asset and the
- * sky fade is painted, so no mask has to be composited under a transform.
+ * Layer 2 — the pitch itself.
+ *
+ * Nothing inside this cell changes while the camera dollies. That is the whole
+ * point of its shape: the cell is scaled every frame of the scrub, so anything
+ * animating *within* it would dirty the photograph's texture and force a
+ * full-frame re-raster at the new scale — the single most expensive thing the
+ * hero used to do, and the source of the flicker on large viewports. The two
+ * grades that do animate now live outside it, in `PitchGradeLayers`.
+ *
+ * The colour grade is baked into the asset, and the sky fade and the warm
+ * floodlight pool are painted as two backgrounds on one div rather than two
+ * more stacked surfaces.
  */
 export function PitchLayer() {
   return (
@@ -76,35 +84,13 @@ export function PitchLayer() {
           style={{ objectPosition: "center 42%" }}
         />
         <div
-          data-pitch-scrim
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg,rgba(5,12,19,.55) 0%,transparent 26%,transparent 70%,rgba(4,18,12,.55) 100%)",
-          }}
-        />
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
+              // Sky fade across the top 22% of the frame…
+              "linear-gradient(180deg,#050c13 0%,#06141b 9.2%,rgba(8,26,28,0) 22%)," +
+              // …and the warm spill under the floodlight.
               "radial-gradient(ellipse 40% 46% at 74% 66%,rgba(255,244,214,.1),transparent 60%)",
-          }}
-        />
-        <div
-          data-pitch-glow
-          className="pointer-events-none absolute inset-0 opacity-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 130% 120% at 55% 56%,rgba(255,247,224,.3),rgba(255,247,224,.13) 70%,rgba(255,247,224,.05))",
-          }}
-        />
-        {/* Painted sky gradient in place of an animated mask-image. */}
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0"
-          style={{
-            height: "22%",
-            background:
-              "linear-gradient(180deg,#050c13 0%,#06141b 42%,rgba(8,26,28,0) 100%)",
           }}
         />
       </div>
@@ -112,12 +98,54 @@ export function PitchLayer() {
   );
 }
 
-/** Background fog — the slow one, sitting behind everything. */
-export function FogBackLayer() {
+/**
+ * The two grades that cross-fade as you arrive: the scrim that holds the photo
+ * back at rest, and the light the field catches once you are on it.
+ *
+ * They sit outside the dollying pitch cell and are never transformed, so each
+ * is rastered once and the scrub only hands the compositor a new opacity.
+ * They do not dolly, which is imperceptible — both are soft full-frame
+ * gradients with no structure to track the camera.
+ */
+export function PitchGradeLayers() {
   return (
-    <CameraCell name="fog-bg" z={2}>
+    <>
       <div
-        data-layer="fog-bg"
+        data-pitch-scrim
+        className="pointer-events-none absolute inset-0 z-3"
+        style={{
+          willChange: "var(--wc-opacity,auto)",
+          background:
+            "linear-gradient(180deg,rgba(5,12,19,.55) 0%,transparent 26%,transparent 70%,rgba(4,18,12,.55) 100%)",
+        }}
+      />
+      <div
+        data-pitch-glow
+        className="pointer-events-none absolute inset-0 z-3 opacity-0"
+        style={{
+          willChange: "var(--wc-opacity,auto)",
+          background:
+            "radial-gradient(ellipse 130% 120% at 55% 56%,rgba(255,247,224,.3),rgba(255,247,224,.13) 70%,rgba(255,247,224,.05))",
+        }}
+      />
+    </>
+  );
+}
+
+/**
+ * The hero's one fog layer.
+ *
+ * There used to be two, a slow sheet behind and a faster mirrored one in
+ * front. They were the same artwork at 0.5 and 0.4 opacity, and on any frame
+ * where both were on screen the second was almost entirely hidden by the first
+ * — a full-viewport image composited every frame for a difference you cannot
+ * point at. One sheet, drifting, is what the scene needs.
+ */
+export function FogLayer() {
+  return (
+    <CameraCell name="fog" z={2}>
+      <div
+        data-layer="fog"
         className="absolute"
         style={{ left: "-8%", right: "-8%", bottom: "-6%", height: "80%", opacity: 0.5 }}
       >
@@ -128,7 +156,7 @@ export function FogBackLayer() {
           style={{
             ...ambientImage,
             objectPosition: "center bottom",
-            animation: "fogBg 89s linear infinite",
+            animation: "fogDrift 89s linear infinite",
           }}
         />
       </div>
@@ -156,49 +184,26 @@ export function MistLayer() {
   );
 }
 
+/**
+ * The vignette, which opens all the way out as you arrive.
+ *
+ * It used to dolly with the camera, which meant a full-viewport surface being
+ * re-rastered at a new scale on every frame of the scrub. It is a soft radial
+ * with no structure in it — nothing about it reads as near or far — so
+ * scaling it was invisible and pinning it costs nothing. Now it only ever
+ * changes opacity, which the compositor does for free.
+ */
 export function VignetteLayer() {
   return (
     <div
       data-layer="vignette"
       className="pointer-events-none absolute inset-0 z-4"
       style={{
-        transformOrigin: "50% 62%",
-        willChange: "var(--wc,auto)",
+        willChange: "var(--wc-opacity,auto)",
         background:
           "radial-gradient(ellipse 128% 128% at 50% 50%,transparent 52%,rgba(0,0,0,.32) 82%,rgba(0,0,0,.5) 100%)",
       }}
     />
-  );
-}
-
-/** Foreground fog — faster, mirrored, drifting across the lower frame. */
-export function FogFrontLayer() {
-  return (
-    <CameraCell name="fog-fg" z={4}>
-      <div
-        data-layer="fog-fg"
-        className="absolute"
-        style={{
-          left: "-12%",
-          right: "-12%",
-          bottom: "-10%",
-          height: "56%",
-          opacity: 0.4,
-          transform: "scaleX(-1)",
-        }}
-      >
-        <img
-          src={fogUrl}
-          alt=""
-          decoding="async"
-          style={{
-            ...ambientImage,
-            objectPosition: "center bottom",
-            animation: "fogFg 107s linear -26s infinite",
-          }}
-        />
-      </div>
-    </CameraCell>
   );
 }
 
@@ -226,7 +231,7 @@ export function LeavesLayer() {
           ...ambientImage,
           objectPosition: "top center",
           transformOrigin: "top center",
-          animation: "leafSway 67s linear -16s infinite",
+          transform: "rotate(-.2deg)",
         }}
       />
     </div>
