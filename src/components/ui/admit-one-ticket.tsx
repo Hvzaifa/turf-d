@@ -1,4 +1,4 @@
-import { useMemo, type CSSProperties, type ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Water } from "@paper-design/shaders-react";
 
 /**
@@ -9,12 +9,18 @@ import { Water } from "@paper-design/shaders-react";
  * vendoring the bundle — same shaders, but it stays patchable and it does not
  * duplicate ~40kB of WebGL plumbing into our source tree.
  *
- * Two deliberate departures from the original. The field is `Water` rather
- * than `Dithering`: the card should look like light moving under a surface,
- * not like a printed gradient. And it runs slowly and forever — a non-zero
- * speed holds a `requestAnimationFrame` open for as long as the mount lives,
- * which is the price of the loop, so `shader={false}` (weak devices, reduced
- * motion) still gets the painted still instead.
+ * The field is `Water` rather than `Dithering`: the card should look like light
+ * moving under a surface, not like a printed gradient. It runs slowly and
+ * forever — a non-zero `speed` holds a `requestAnimationFrame` open for as long
+ * as the mount lives, which is the price of the loop, so `shader={false}` (weak
+ * devices, reduced motion) gets a painted still instead.
+ *
+ * The paper and the printing live together here. They were split into a
+ * separate `TicketStock` when the hero fanned three sport-specific passes and
+ * the stock had to stay identical across them; the hero shows one card now, so
+ * the split was two files and a duplicated prop list to give one component one
+ * caller. What the split allowed for and nothing used — a tear across the card
+ * instead of down it, a full-face or absent wash — went with it.
  */
 
 export type AdmitOneTicketProps = {
@@ -28,10 +34,7 @@ export type AdmitOneTicketProps = {
   stub: string;
   /** Serial in the bottom corner, mono. */
   serial: string;
-  /**
-   * Offsets the field so a stack of tickets is never in phase — each card
-   * starts at a different moment of the same loop.
-   */
+  /** Offsets the shader so a stack of tickets is never in phase. */
   frame?: number;
   /** The card stock: the flat colour the caustics move over. */
   colorBack?: string;
@@ -43,11 +46,7 @@ export type AdmitOneTicketProps = {
    * pair. Pale cards pass the dark ink; dark cards keep the default.
    */
   ink?: string;
-  /**
-   * Set false to skip WebGL entirely and paint the field in CSS. Callers use
-   * it to keep low-end devices off the shader; the component also falls back
-   * on its own when the browser has no WebGL2.
-   */
+  /** Set false to skip WebGL entirely and paint the field in CSS. */
   shader?: boolean;
   /** Rendered over the shader, under the text — used for the hero's grade. */
   children?: ReactNode;
@@ -57,7 +56,20 @@ export type AdmitOneTicketProps = {
 
 /** Where the stub is torn off, as a fraction of the ticket's width. */
 const TEAR = 0.7;
+/** The punched notches sit this far in from the tear line's ends. */
 const NOTCH = "9px";
+
+/**
+ * Two circular bites out of the card at the tear line. A mask is the only way
+ * to get real holes: the ticket sits over a photograph, so a notch painted in
+ * a background colour would read as a coloured dot.
+ *
+ * Constant, because the tear is: it does not depend on a prop, so it is built
+ * once at module load rather than memoised per mount.
+ */
+const NOTCH_MASK =
+  `radial-gradient(circle ${NOTCH} at ${TEAR * 100}% 0%,transparent 97%,#000 100%),` +
+  `radial-gradient(circle ${NOTCH} at ${TEAR * 100}% 100%,transparent 97%,#000 100%)`;
 
 /**
  * WebGL2 is required by paper-shaders and is not universal (older iOS, some
@@ -94,21 +106,6 @@ export function AdmitOneTicket({
 }: AdmitOneTicketProps) {
   const shaded = shader && supportsWebGL2();
 
-  // Two circular bites out of the card at the tear line. A mask is the only
-  // way to get real holes: the ticket sits over a photograph, so a notch
-  // painted in a background colour would read as a coloured dot.
-  const punch = useMemo<CSSProperties>(() => {
-    const holes =
-      `radial-gradient(circle ${NOTCH} at ${TEAR * 100}% 0%,transparent 97%,#000 100%),` +
-      `radial-gradient(circle ${NOTCH} at ${TEAR * 100}% 100%,transparent 97%,#000 100%)`;
-    return {
-      maskImage: holes,
-      WebkitMaskImage: holes,
-      maskComposite: "intersect",
-      WebkitMaskComposite: "source-in",
-    } as CSSProperties;
-  }, []);
-
   return (
     <div
       className={className}
@@ -118,7 +115,10 @@ export function AdmitOneTicket({
         borderRadius: "10px",
         overflow: "hidden",
         background: colorBack,
-        ...punch,
+        maskImage: NOTCH_MASK,
+        WebkitMaskImage: NOTCH_MASK,
+        maskComposite: "intersect",
+        WebkitMaskComposite: "source-in",
         ...style,
       }}
     >

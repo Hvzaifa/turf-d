@@ -4,14 +4,12 @@ import { useMotionProfile } from "../../lib/motion/motionProfile";
 import { useSmoothScroll } from "../../lib/motion/useSmoothScroll";
 import {
   FogLayer,
-  LeavesLayer,
   MistLayer,
   PitchGradeLayers,
   PitchLayer,
   VignetteLayer,
 } from "./HeroAtmosphere";
 import { HeroContent, type HeroContentProps } from "./HeroContent";
-import { HeroDevice } from "./HeroDevice";
 import { HERO_TRACK_HEIGHT } from "./heroMotion";
 import { IntroVeil } from "./IntroVeil";
 import { ScrollCue } from "./ScrollCue";
@@ -29,7 +27,7 @@ export type HeroProps = HeroContentProps;
  * to do nothing but scrub — it never mutates the DOM React owns.
  *
  * Layer order (z): pitch and fog (2) → the two cross-fading grades (3) →
- * midground grade (4) → canopy and device (5) → copy (6) → intro veil (8).
+ * midground grade (4) → canopy and tournament cards (5) → copy (6) → intro veil (8).
  *
  * The design's rays, particles, film grain and text-air layers are gone: each
  * changed the frame by only 1-3/255 with no structure, while every
@@ -71,8 +69,6 @@ export function Hero({ onSubmit, onWatchFilm }: HeroProps) {
         <FogLayer />
         <MistLayer />
         <VignetteLayer />
-        <LeavesLayer />
-        <HeroDevice />
 
         <HeroContent onSubmit={onSubmit} onWatchFilm={onWatchFilm} />
 

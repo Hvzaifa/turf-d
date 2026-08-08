@@ -76,16 +76,3 @@ export const COPY_DELAYS = {
   scrollCue: 2.1,
 } as const;
 
-/**
- * When the phone arrives, as a fraction of the hero's scroll track.
- *
- * The hero itself is the ticket stack; the phone is not in it at all. It only
- * appears once the copy and the tickets have finished clearing (that fade ends
- * at 0.56) and the frame is nothing but the empty ground — so the two are
- * never on screen together and nothing competes with the photograph.
- */
-export const DEVICE_ARRIVE_START = 0.56;
-export const DEVICE_ARRIVE_DURATION = 0.4;
-
-/** Where the phone comes from: a little low and a little small. */
-export const DEVICE_ARRIVE_FROM = { y: 30, scale: 0.94 } as const;

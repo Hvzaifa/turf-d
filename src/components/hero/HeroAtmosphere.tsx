@@ -8,7 +8,6 @@ import type { CSSProperties, ReactNode } from "react";
  * layering on top of it.
  */
 import fogUrl from "../../assets/hero/fog-keyed.webp";
-import leavesUrl from "../../assets/hero/leaves-1400.webp";
 import pitch1024Url from "../../assets/hero/new-hero-1024.webp";
 import pitch1600Url from "../../assets/hero/new-hero-1600.webp";
 import pitchUrl from "../../assets/hero/new-hero-graded.webp";
@@ -207,33 +206,4 @@ export function VignetteLayer() {
   );
 }
 
-/** Layer 5 — the canopy, bleeding past the viewport on every side. */
-export function LeavesLayer() {
-  return (
-    <div
-      data-layer="leaves"
-      className="pointer-events-none absolute z-5"
-      style={{
-        top: "-12%",
-        left: "-10%",
-        right: "-10%",
-        height: "66%",
-        opacity: 0.94,
-        transformOrigin: "50% 62%",
-        willChange: "var(--wc,auto)",
-      }}
-    >
-      <img
-        src={leavesUrl}
-        alt=""
-        decoding="async"
-        style={{
-          ...ambientImage,
-          objectPosition: "top center",
-          transformOrigin: "top center",
-          transform: "rotate(-.2deg)",
-        }}
-      />
-    </div>
-  );
-}
+

@@ -7,7 +7,6 @@ export const LEAD =
 
 export const LIVE_LABEL = "Live";
 export const LIVE_TIMESTAMP = "Updated just now";
-export const LIVE_TIMESTAMP_LATE = "Updated moments ago";
 
 /** The status vocabulary, and the colour each one is set in. */
 export const STATUS_COLOR = {
